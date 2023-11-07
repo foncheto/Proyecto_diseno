@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar';
-import Banner from './components/Banner';
-import Movies from './components/Movies';
-import Pagination from './components/Pagination';
-import { BrowserRouter, Routes, Route }
-  from "react-router-dom"
-import Favourites from './components/Favourites';
-import PageNotFound from './components/PageNotFound';
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Banner from "./components/Banner";
+import Movies from "./components/Movies";
+import MovieDetail from "./components/MovieDetail";
+import TvDetail from "./components/TvDetail";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Favourites from "./components/Favourites";
+import PageNotFound from "./components/PageNotFound";
 function App() {
   return (
     <>
@@ -15,28 +15,25 @@ function App() {
         {/* <h1> Hello React ❤️</h1> */}
         <NavBar></NavBar>
         <Routes>
-          <Route path="/" element={
-            <>
-              <Banner></Banner>
-              <Movies></Movies>
-            </>
-          }></Route>
-
-          <Route path="/fav" element={
-            <Favourites></Favourites>
-          }></Route>
-
-          <Route path="*"
-            element={<PageNotFound></PageNotFound>}>
-          </Route>
+          <Route
+            path="/"
+            element={
+              <>
+                <Banner></Banner>
+                <Movies></Movies>
+              </>
+            }
+          ></Route>
+          <Route path="/fav" element={<Favourites></Favourites>}></Route>
+          <Route
+            path="/movie/:id"
+            element={<MovieDetail></MovieDetail>}
+          ></Route>
+          <Route path="/tv/:id" element={<TvDetail></TvDetail>}></Route>
+          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
         </Routes>
-
-
-
       </BrowserRouter>
-
     </>
-
   );
 }
 
