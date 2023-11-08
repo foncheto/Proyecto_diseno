@@ -1,12 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCss3,
-  faHtml5,
+  faNode,
   faReact,
   faLinkedin,
   faWhatsapp,
   faGithub,
+  faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
@@ -44,8 +44,8 @@ const Footer = () => {
       <div className="footer-section text-center">
         <p className="font-bold mb-4">Agradecimientos!</p>
         <div className="flex gap-4 justify-center">
-          <FontAwesomeIcon icon={faCss3} size="2x" className="icon-red" />
-          <FontAwesomeIcon icon={faHtml5} size="2x" className="icon-red" />
+          <FontAwesomeIcon icon={faNode} size="2x" className="icon-red" />
+          <FontAwesomeIcon icon={faDiscord} size="2x" className="icon-red" />
           <FontAwesomeIcon icon={faReact} size="2x" className="icon-red" />
         </div>
       </div>
