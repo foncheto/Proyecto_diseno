@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // Importa 'useParams' desde react-router-dom
+import { useParams } from "react-router-dom";
 
 const TvDetail = () => {
-  const { id } = useParams(); // Obtén el 'id' de la URL usando 'useParams'
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -20,16 +20,71 @@ const TvDetail = () => {
     return <div>Loading...</div>;
   }
 
+  const containerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '20px',
+    fontFamily: 'Roboto, sans-serif',
+    backgroundColor: '#FFDBAC', // Color piel
+    borderRadius: '30px', // Bordes redondeados
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Sombra ligera
+    // Otros estilos si los necesitas
+  };
+
+  const containerStyle1 = {
+    display: 'flex', // Utiliza flexbox
+    alignItems: 'center', // Alinea verticalmente los elementos
+    padding: '20px',
+    fontFamily: 'Roboto, sans-serif',
+    // Otros estilos si los necesitas
+  };
+
+  const imgStyle = {
+    maxWidth: '200px',
+    height: 'auto',
+    marginRight: '20px', // Espacio entre la imagen y el texto
+    // Otros estilos si los necesitas
+  };
+
+  const textContainerStyle = {
+    flex: '1', // Permite que el contenedor ocupe el espacio restante
+    // Otros estilos si los necesitas
+  };
+
+  const h1Style = {
+    textAlign: 'center',
+    flex: '1',
+    fontSize: '2em',
+    fontWeight: 'bold',
+    fontFamily: 'Roboto, sans-serif',
+    backgroundColor: '#FFDBAC', // Color piel
+    borderRadius: '100px', // Bordes redondeados
+    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.1)', // Sombra ligera
+    // Otros estilos si los necesitas
+  };
+
+  const pStyle = {
+    textAlign: 'justify',
+    // Otros estilos si los necesitas
+  };
+
   return (
-    <div>
-      <h1>{movie.name}</h1>
-      <p>{movie.overview}</p>
+    <>
+    <div style={containerStyle1}>
+      <h1 style={h1Style}>{movie.name}</h1>
+    </div>
+    <div style={containerStyle}>
       <img
         src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
         alt="foto"
+        style={imgStyle}
       />
-      {/* Add more details as needed */}
+      <div style={textContainerStyle}>
+        <p style={pStyle}>{movie.overview}</p>
+        {/* Agregar más detalles según sea necesario */}
+      </div>
     </div>
+    </>
   );
 };
 
