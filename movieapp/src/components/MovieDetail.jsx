@@ -21,10 +21,10 @@ const MovieDetail = () => {
   }
 
   const containerStyle = {
-    display: "flex",
-    alignItems: "center",
-    padding: "20px",
-    fontFamily: "Roboto, sans-serif",
+    display: "flex", //diseño flexible
+    alignItems: "center", //centramos los datos que se encuentran
+    padding: "20px", //realizamos un padding
+    fontFamily: "Roboto, sans-serif", //Tipo de fuente a utilizar.
     backgroundColor: "#FFDBAC", // Color piel
     borderRadius: "8px", // Bordes redondeados
     boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.1)", // Sombra ligera
