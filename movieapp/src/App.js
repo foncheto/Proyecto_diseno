@@ -8,6 +8,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Favourites from "./components/Favourites";
 import PageNotFound from "./components/PageNotFound";
 import Footer from "./components/Footer";
+import Peliculas from "./components/Peliculas";
+import Series from "./components/Series";
 function App() {
   return (
     <>
@@ -26,6 +28,24 @@ function App() {
             }
           ></Route>
           <Route path="/fav" element={<Favourites></Favourites>}></Route>
+          <Route
+            path="/peliculas"
+            element={
+              <>
+                <Peliculas></Peliculas>
+                <Footer></Footer>
+              </>
+            }
+          ></Route>
+          <Route
+            path="/series"
+            element={
+              <>
+                <Series></Series>
+                <Footer></Footer>
+              </>
+            }
+          ></Route>
           <Route
             path="/movie/:id"
             element={

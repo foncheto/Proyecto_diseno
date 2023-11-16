@@ -33,21 +33,23 @@ function Banner() {
           />
         </div>
       ) : (
-        <div
-          className={`
+        <>
+          <div
+            className={`
                     h-[40vh] md:h-[60vh]
             bg-center bg-cover
             flex items-end 
             `}
-          style={{
-            backgroundImage: `url(
+            style={{
+              backgroundImage: `url(
                                     https://image.tmdb.org/t/p/original/t/p/original/${bannerMovie.backdrop_path})`,
-          }}
-        >
-          <div className="text-xl md:text-3xl text-white bg-gray-900 bg-opacity-60 p-4 text-center w-full">
-            {bannerMovie.original_title}
+            }}
+          >
+            <div className=" font-bold text-7xl md:text-7xl text-white bg-gray-900 bg-opacity-60 p-8 text-center w-full">
+              PelicuRanking
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

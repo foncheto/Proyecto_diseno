@@ -4,7 +4,7 @@ import axios from "axios";
 import Pagination from "./Pagination";
 import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
-function Movies() {
+function Peliculas() {
   let [movies, setMovies] = useState([]);
   let [pageNum, setPage] = useState(1);
   let [hovered, setHovered] = useState("");
@@ -16,7 +16,7 @@ function Movies() {
       (function () {
         axios
           .get(
-            "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=" +
+            "https://api.themoviedb.org/3/trending/tv/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=" +
               pageNum
           )
           .then((res) => {
@@ -58,7 +58,14 @@ function Movies() {
   };
 
   return (
-    <div className="mt-3">
+    <div className="mt-8">
+      <div
+        className="mb-8
+            font-bold text-2xl text-center text-5xl
+            "
+      >
+        Trending Series
+      </div>
       <div
         className="flex 
             flex-wrap
@@ -172,4 +179,4 @@ function Movies() {
   );
 }
 
-export default Movies;
+export default Peliculas;
