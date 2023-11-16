@@ -70,7 +70,7 @@ function TvDetail() {
 
   return (
     <div className="flex">
-      <div className="w-1/2">
+      <div className="w-1/2 border-black border-2 rounded-lg">
         <div className="mt-8">
           <div className="mb-8 font-bold text-2xl text-center text-3xl">
             Otras series
@@ -143,8 +143,8 @@ function TvDetail() {
           <Pagination pageNum={pageNum} onPrev={onPrev} onNext={onNext} />
         </div>
       </div>
-      <div className="w-1/2">
-        <div className="mt-8 text-center text-2xl font-bold">{movie.name}</div>
+      <div className="w-1/2 border-black border-2 rounded-lg">
+        <div className="mt-8 text-center text-2xl font-bold"></div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.backdrop_path}`}
@@ -152,9 +152,24 @@ function TvDetail() {
             style={{ margin: "0 auto" }}
           />
         </div>
-        <div className="mt-8 text-center font-serif text-justify">
-          {movie.overview}
-        </div>
+        <div className="mt-8 text-center font-serif text-justify" style={{ display: 'flex', alignItems: 'center', marginRight: "10px", marginLeft: "10px" }}>
+          <div className="" style={{ backgroundColor: 'lightgrey'}}>
+            <img
+                src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
+                alt="foto"
+                style={{ maxWidth: '150px', maxHeight: '400px' }}
+            />
+          </div>
+          <div style={{ marginLeft: '20px' }}>
+            <div className="mt-8 text-center font-serif text-justify">
+              <div className="mx-auto" style={{ maxWidth: 'fit-content', fontWeight: 'bold', fontSize: "1.5em", backgroundColor: 'lightgrey' }}>
+                {movie.name}
+              </div>
+            </div>
+              {movie.overview}
+      </div>
+</div>
+
       </div>
     </div>
   );
