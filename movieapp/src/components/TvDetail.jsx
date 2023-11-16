@@ -96,7 +96,7 @@ function TvDetail() {
                       hideEmoji(movie.id);
                     }}
                     key={movie.id}
-                    className="bg-center bg-cover w-[160px] h-[30vh] md:h-[40vh] md:w-[180px] m-4 rounded-xl hover:scale-110 duration-300 flex items-end relative"
+                    className="bg-center bg-cover w-[80px] h-[15vh] md:h-[20vh] md:w-[90px] m-4 rounded-xl hover:scale-110 duration-300 flex items-end relative"
                     style={{
                       backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
                     }}
@@ -144,20 +144,17 @@ function TvDetail() {
         </div>
       </div>
       <div className="w-1/2">
-        <div className="mt-8 text-center text-2xl font-bold">
-        {movie.name}
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img
-                src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.backdrop_path}`}
-                alt="foto"
-                style={{ margin: '0 auto' }}
-            />
+        <div className="mt-8 text-center text-2xl font-bold">{movie.name}</div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.backdrop_path}`}
+            alt="foto"
+            style={{ margin: "0 auto" }}
+          />
         </div>
         <div className="mt-8 text-center font-serif text-justify">
           {movie.overview}
         </div>
-
       </div>
     </div>
   );
