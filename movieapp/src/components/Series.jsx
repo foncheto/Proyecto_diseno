@@ -177,6 +177,7 @@ function Peliculas() {
       ></Pagination>
     </div>
   );
+  
 }
 
 export default Peliculas;
