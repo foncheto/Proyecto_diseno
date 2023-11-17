@@ -55,6 +55,16 @@ function NavBar() {
         Ranking
       </Link>
       <Link
+        to="/contacto"
+        className="font-bold
+            text-xl
+            text-blue-400
+            
+            "
+      >
+        Contacto
+      </Link>
+      <Link
         to="/fav"
         className="font-bold
             text-xl

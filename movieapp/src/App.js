@@ -10,6 +10,7 @@ import PageNotFound from "./components/PageNotFound";
 import Footer from "./components/Footer";
 import Peliculas from "./components/Peliculas";
 import Series from "./components/Series";
+import Contacto from "./components/Contacto";
 function App() {
   return (
     <>
@@ -42,6 +43,15 @@ function App() {
             element={
               <>
                 <Series></Series>
+                <Footer></Footer>
+              </>
+            }
+          ></Route>
+          <Route
+            path="/contacto"
+            element={
+              <>
+                <Contacto></Contacto>
                 <Footer></Footer>
               </>
             }
