@@ -88,54 +88,51 @@ function TvDetail() {
             ) : (
               movies.map((movie) => {
                 return (
-                  <div
-                    onMouseOver={() => {
-                      showEmoji(movie.id);
-                    }}
-                    onMouseLeave={() => {
-                      hideEmoji(movie.id);
-                    }}
-                    key={movie.id}
-                    className="bg-center bg-cover w-[80px] h-[15vh] md:h-[20vh] md:w-[90px] m-4 rounded-xl hover:scale-110 duration-300 flex items-end relative"
-                    style={{
-                      backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
-                    }}
-                  >
-                    <div
-                      className="p-2 bg-gray-900 absolute top-2 right-2 rounded-xl"
-                      style={{
-                        display: hovered === movie.id ? "block" : "none",
-                      }}
-                    >
-                      {!favourites.includes(movie.id) ? (
-                        <div
-                          className="text-2xl"
-                          onClick={() => {
-                            addEmoji(movie.id);
-                          }}
-                        >
-                          😍
-                        </div>
-                      ) : (
-                        <div
-                          className="text-2xl"
-                          onClick={() => {
-                            removeEmoji(movie.id);
-                          }}
-                        >
-                          ❌
-                        </div>
-                      )}
-                    </div>
-                    <div className="font-bold text-white bg-gray-900 bg-opacity-60 p-2 text-center w-full rounded-b-xl text-decoration-none">
-                      <Link
-                        to={`/${movie.media_type}/${movie.id}`}
-                        className="font-bold text-xl text-blue-400"
+                  <>
+                    <Link to={`/${movie.media_type}/${movie.id}`}>
+                      <div
+                        onMouseOver={() => {
+                          showEmoji(movie.id);
+                        }}
+                        onMouseLeave={() => {
+                          hideEmoji(movie.id);
+                        }}
+                        key={movie.id}
+                        className="bg-center bg-cover w-[80px] h-[15vh] md:h-[20vh] md:w-[90px] m-4 rounded-xl hover:scale-110 duration-300 flex items-end relative"
+                        style={{
+                          backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
+                        }}
                       >
-                        {movie.title || movie.name}
-                      </Link>
-                    </div>
-                  </div>
+                        <div
+                          className="p-2 bg-gray-900 absolute top-2 right-2 rounded-xl"
+                          style={{
+                            display: hovered === movie.id ? "block" : "none",
+                          }}
+                        >
+                          {!favourites.includes(movie.id) ? (
+                            <div
+                              className="text-2xl"
+                              onClick={() => {
+                                addEmoji(movie.id);
+                              }}
+                            >
+                              😍
+                            </div>
+                          ) : (
+                            <div
+                              className="text-2xl"
+                              onClick={() => {
+                                removeEmoji(movie.id);
+                              }}
+                            >
+                              ❌
+                            </div>
+                          )}
+                        </div>
+                        <div className="font-bold text-white bg-gray-900 bg-opacity-60 p-2 text-center w-full rounded-b-xl text-decoration-none"></div>
+                      </div>
+                    </Link>
+                  </>
                 );
               })
             )}
@@ -152,24 +149,32 @@ function TvDetail() {
             style={{ margin: "0 auto" }}
           />
         </div>
-        <div className="mt-8 text-center font-serif text-justify" style={{ display: 'flex', alignItems: 'center', marginRight: "10px", marginLeft: "10px" }}>
-          <div className="" style={{ backgroundColor: 'lightgrey'}}>
-            <img
-                src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
-                alt="foto"
-                style={{ maxWidth: '150px', maxHeight: '400px' }}
-            />
-          </div>
-          <div style={{ marginLeft: '20px' }}>
+        <div
+          className="mt-8 text-center font-serif text-justify"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: "10px",
+            marginLeft: "10px",
+          }}
+        >
+          <div style={{ marginLeft: "20px" }}>
             <div className="mt-8 text-center font-serif text-justify">
-              <div className="mx-auto" style={{ maxWidth: 'fit-content', fontWeight: 'bold', fontSize: "1.5em", backgroundColor: 'lightgrey' }}>
+              <div
+                className="mx-auto"
+                style={{
+                  maxWidth: "fit-content",
+                  fontWeight: "bold",
+                  fontSize: "1.5em",
+                  backgroundColor: "lightgrey",
+                }}
+              >
                 {movie.name}
               </div>
             </div>
-              {movie.overview}
-      </div>
-</div>
-
+            {movie.overview}
+          </div>
+        </div>
       </div>
     </div>
   );
