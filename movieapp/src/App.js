@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import Peliculas from "./components/Peliculas";
 import Series from "./components/Series";
 import Contacto from "./components/Contacto";
+import Ranking from "./components/Ranking";
+import Acerca from "./components/Acerca";
 function App() {
   return (
     <>
@@ -52,6 +54,24 @@ function App() {
             element={
               <>
                 <Contacto></Contacto>
+                <Footer></Footer>
+              </>
+            }
+          ></Route>
+          <Route
+            path="/ranking"
+            element={
+              <>
+                <Ranking></Ranking>
+                <Footer></Footer>
+              </>
+            }
+          ></Route>
+          <Route
+            path="/acerca"
+            element={
+              <>
+                <Acerca></Acerca>
                 <Footer></Footer>
               </>
             }

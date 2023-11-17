@@ -65,6 +65,17 @@ function NavBar() {
         Contacto
       </Link>
       <Link
+        to="/acerca"
+        className="font-bold
+            text-xl
+            text-blue-400
+            
+            "
+      >
+        {" "}
+        Acerca
+      </Link>
+      <Link
         to="/fav"
         className="font-bold
             text-xl
