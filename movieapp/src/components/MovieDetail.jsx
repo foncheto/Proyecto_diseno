@@ -23,7 +23,6 @@ function MovieDetail() {
       });
   }, [id]);
 
-  /* making api request */
   useEffect(() => {
     axios
       .get(
@@ -35,7 +34,6 @@ function MovieDetail() {
       });
   }, [pageNum]);
 
-  /* Pagination handlers */
   const onPrev = () => {
     if (pageNum > 1) {
       setPage(pageNum - 1);
@@ -46,7 +44,6 @@ function MovieDetail() {
     setPage(pageNum + 1);
   };
 
-  /* Emoji show and hide on hover */
   const showEmoji = (id) => {
     setHovered(id);
   };
@@ -55,7 +52,6 @@ function MovieDetail() {
     setHovered("");
   };
 
-  /* Adding / removing emojis to fav */
   const addEmoji = (id) => {
     const newFav = [...favourites, id];
     setFavorites(newFav);
@@ -70,6 +66,50 @@ function MovieDetail() {
 
   return (
     <div className="flex">
+      <div className="w-1/2 border-black border-2 rounded-lg">
+        <div className="mt-8 text-center text-2xl font-bold"></div>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "100px" }}>
+            <img
+              src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.backdrop_path}`}
+              alt="foto"
+              style={{ margin: "0 auto" }}
+            />
+        </div>
+        <div
+          className="mt-8 text-center font-serif text-justify"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginRight: "10px",
+            marginLeft: "10px",
+          }}
+        >
+          <div style={{ marginLeft: "10px" }}>
+            <div className="mt-8 text-center font-serif text-justify">
+              <div
+                className="mx-auto"
+                style={{
+                  maxWidth: "fit-content",
+                  fontWeight: "bold",
+                  fontSize: "250%",
+                }}
+                >
+                {movie.title}
+              </div>
+            </div>
+            <div className="mt-8 text-center font-serif text-justify">
+              <div
+                className="mx-auto"
+                style={{
+                  backgroundColor: "lightgrey", padding: "10px", borderRadius: "10px", width: "fit-content", marginRight: "10px"
+                }}
+                >
+                {movie.overview}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="w-1/2 border-black border-2 rounded-lg">
         <div className="mt-8">
           <div className="mb-8 font-bold text-2xl text-center text-3xl">
@@ -138,42 +178,6 @@ function MovieDetail() {
             )}
           </div>
           <Pagination pageNum={pageNum} onPrev={onPrev} onNext={onNext} />
-        </div>
-      </div>
-      <div className="w-1/2 border-black border-2 rounded-lg">
-        <div className="mt-8 text-center text-2xl font-bold"></div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img
-            src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.backdrop_path}`}
-            alt="foto"
-            style={{ margin: "0 auto" }}
-          />
-        </div>
-        <div
-          className="mt-8 text-center font-serif text-justify"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginRight: "10px",
-            marginLeft: "10px",
-          }}
-        >
-          <div style={{ marginLeft: "20px" }}>
-            <div className="mt-8 text-center font-serif text-justify">
-              <div
-                className="mx-auto"
-                style={{
-                  maxWidth: "fit-content",
-                  fontWeight: "bold",
-                  fontSize: "1.5em",
-                  backgroundColor: "lightgrey",
-                }}
-              >
-                {movie.title}
-              </div>
-            </div>
-            {movie.overview}
-          </div>
         </div>
       </div>
     </div>
