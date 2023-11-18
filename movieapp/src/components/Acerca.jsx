@@ -14,7 +14,7 @@ function Acerca() {
         </div>
         <p>{textoAleatorio}</p>
         <div style={{ display: 'flex', marginTop: "50px" }}>
-        <div style={{ backgroundColor: 'lightgrey', flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+        <div style={{ backgroundColor: 'lightgrey', borderRadius: "10px", flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
     <img src={AlfonsoImage} alt="Programador" width="150" height="200" style={{ marginBottom: '20px' }} />
     <div className="texto1" style={{ textAlign: 'justify', fontFamily: 'Arial, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
         <h3>Alfonso Pinto</h3>
@@ -32,7 +32,7 @@ function Acerca() {
     </div>
 </div>
 
-<div style={{ backgroundColor: 'lightgrey', flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+<div style={{ backgroundColor: 'lightgrey', borderRadius: "10px", flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
     <img src={PabloImage} alt="Programador" width="150" height="200" style={{ marginBottom: '20px' }} />
     <div className="texto1" style={{ textAlign: 'justify', fontFamily: 'Arial, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
         <h3>Pablo Gómez</h3>
@@ -53,7 +53,7 @@ function Acerca() {
         </section>
     </div>
 </div>
-<div style={{ backgroundColor: 'lightgrey', flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+<div style={{ backgroundColor: 'lightgrey', borderRadius: "10px", flex: 1, margin: '0 5px', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
     <img src={JorgeImage} alt="Programador" width="150" height="200" style={{ marginBottom: '20px' }} />
     <div className="texto1" style={{ textAlign: 'justify', fontFamily: 'Arial, sans-serif', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
         <h3>Jorge Becerra</h3>
