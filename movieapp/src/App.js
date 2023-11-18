@@ -5,7 +5,6 @@ import Movies from "./components/Movies";
 import MovieDetail from "./components/MovieDetail";
 import TvDetail from "./components/TvDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Favourites from "./components/Favourites";
 import PageNotFound from "./components/PageNotFound";
 import Footer from "./components/Footer";
 import Peliculas from "./components/Peliculas";
@@ -30,7 +29,6 @@ function App() {
               </>
             }
           ></Route>
-          <Route path="/fav" element={<Favourites></Favourites>}></Route>
           <Route
             path="/peliculas"
             element={

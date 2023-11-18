@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import axios from "axios";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
+  const [sortBy, setSortBy] = useState("vote_average"); // Default sorting by vote_average
+  const [sortOrder, setSortOrder] = useState("desc"); // Default sorting order descending
+  const [selectedGenre, setSelectedGenre] = useState("All Genres");
   let genreids = {
     28: "Action",
     12: "Adventure",
@@ -24,80 +28,34 @@ function Ranking() {
     10752: "War",
     37: "Western",
   };
-  let movies = [
-    {
-      adult: false,
-      backdrop_path: "/ogFIG0fNXEYRQKrpnoRJcXQNX9n.jpg",
-      id: 619930,
-      title: "Narvik",
-      original_language: "no",
-      original_title: "Kampen om Narvik",
-      overview:
-        "April, 1940. The eyes of the world are on Narvik, a small town in northern Norway, a source of the iron ore needed for Hitler's war machine. Through two months of fierce winter warfare, the German leader is dealt with his first defeat.",
-      poster_path: "/gU4mmINWUF294Wzi8mqRvi6peMe.jpg",
-      media_type: "movie",
-      genre_ids: [10752, 18, 36, 28],
-      popularity: 321.063,
-      release_date: "2022-12-25",
-      video: true,
-      vote_average: 7.406,
-      vote_count: 53,
-    },
-    {
-      adult: false,
-      backdrop_path: "/6RCf9jzKxyjblYV4CseayK6bcJo.jpg",
-      id: 804095,
-      title: "The Fabelmans",
-      original_language: "en",
-      original_title: "The Fabelmans",
-      overview:
-        "Growing up in post-World War II era Arizona, young Sammy Fabelman aspires to become a filmmaker as he reaches adolescence, but soon discovers a shattering family secret and explores how the power of films can help him see the truth.",
-      poster_path: "/d2IywyOPS78vEnJvwVqkVRTiNC1.jpg",
-      media_type: "movie",
-      genre_ids: [18],
-      popularity: 163.3,
-      release_date: "2022-11-11",
-      video: false,
-      vote_average: 8.02,
-      vote_count: 561,
-    },
-    {
-      adult: false,
-      backdrop_path: "/fTLMsF3IVLMcpNqIqJRweGvVwtX.jpg",
-      id: 1035806,
-      title: "Detective Knight: Independence",
-      original_language: "en",
-      original_title: "Detective Knight: Independence",
-      overview:
-        "Detective James Knight 's last-minute assignment to the Independence Day shift turns into a race to stop an unbalanced ambulance EMT from imperiling the city's festivities. The misguided vigilante, playing cop with a stolen gun and uniform, has a bank vault full of reasons to put on his own fireworks show... one that will strike dangerously close to Knight's home.",
-      poster_path: "/jrPKVQGjc3YZXm07OYMriIB47HM.jpg",
-      media_type: "movie",
-      genre_ids: [28, 53, 80],
-      popularity: 119.407,
-      release_date: "2023-01-20",
-      video: false,
-      vote_average: 6.6,
-      vote_count: 10,
-    },
-    {
-      adult: false,
-      backdrop_path: "/e782pDRAlu4BG0ahd777n8zfPzZ.jpg",
-      id: 555604,
-      title: "Guillermo del Toro's Pinocchio",
-      original_language: "en",
-      original_title: "Guillermo del Toro's Pinocchio",
-      overview:
-        "During the rise of fascism in Mussolini's Italy, a wooden boy brought magically to life struggles to live up to his father's expectations.",
-      poster_path: "/vx1u0uwxdlhV2MUzj4VlcMB0N6m.jpg",
-      media_type: "movie",
-      genre_ids: [16, 14, 18],
-      popularity: 754.642,
-      release_date: "2022-11-18",
-      video: false,
-      vote_average: 8.354,
-      vote_count: 1694,
-    },
-  ];
+  let [movies, setMovies] = useState([]);
+  /* making api request */
+  useEffect(function () {
+    console.log("useEffect again");
+    (function () {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=1"
+        )
+        .then((res) => {
+          // console.table(res.data.results);
+          setMovies(res.data.results);
+        });
+    })();
+  });
+
+  const filteredMovies =
+    selectedGenre !== "All Genres"
+      ? movies.filter((movie) => genreids[movie.genre_ids[0]] === selectedGenre)
+      : movies;
+
+  const sortedMovies = [...filteredMovies].sort((a, b) => {
+    if (sortOrder === "asc") {
+      return a[sortBy] - b[sortBy];
+    } else {
+      return b[sortBy] - a[sortBy];
+    }
+  });
 
   useEffect(() => {
     let temp = movies.map((movie) => genreids[movie.genre_ids[0]]);
@@ -109,14 +67,17 @@ function Ranking() {
   return (
     <>
       <div className="mt-6 flex space-x-2 justify-center">
-        {genres.map((genre) => {
-          return (
-            <button className="py-1 px-2 bg-gray-400 rounded-lg font-bold text-lg text-white hover:bg-blue-400">
-              {" "}
-              {genre}
-            </button>
-          );
-        })}
+        {genres.map((genre) => (
+          <button
+            key={genre}
+            className={`py-1 px-2 bg-gray-400 rounded-lg font-bold text-lg text-white hover:bg-blue-400 ${
+              genre === selectedGenre ? "bg-blue-400" : ""
+            }`}
+            onClick={() => setSelectedGenre(genre)}
+          >
+            {genre}
+          </button>
+        ))}
       </div>
       <div
         className="mt-4 flex justify-center space-x-2
@@ -169,13 +130,10 @@ function Ranking() {
               <th scope="col" class="px-6 py-4 font-medium text-gray-900 ">
                 Genre
               </th>
-              <th scope="col" class="px-6 py-4 font-medium text-gray-900">
-                Remove
-              </th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-            {movies.map((movie) => {
+            {sortedMovies.map((movie) => {
               {
                 console.log(movie);
               }
@@ -197,15 +155,10 @@ function Ranking() {
                   <td class="px-6 py-4 pl-12">{movie.popularity.toFixed(2)}</td>
                   <td class="px-6 py-4">
                     <div class="flex gap-2">
-                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-semibold text-green-600">
+                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600">
                         {genreids[movie.genre_ids[0]]}
                       </span>
                     </div>
-                  </td>
-                  <td class="px-6 py-4">
-                    <span class="inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-semibold text-red-600">
-                      Delete
-                    </span>
                   </td>
                 </tr>
               );
