@@ -75,17 +75,6 @@ function NavBar() {
         {" "}
         Acerca
       </Link>
-      <Link
-        to="/fav"
-        className="font-bold
-            text-xl
-            text-blue-400
-            
-            "
-      >
-        {" "}
-        Favourites
-      </Link>
     </div>
   );
 }
