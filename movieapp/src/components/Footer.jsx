@@ -13,11 +13,11 @@ import {
 
 const Footer = () => {
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-900 text-white fixed bottom-0 w-full">
+    <div className="flex flex-col items-center p-4 bg-gray-900 text-white relative w-full" style={{Zindex: 1}}>
       <div className="flex items-start w-full mb-2">
         <p className="font-bold mr-auto">Síguenos en Redes Sociales</p>
         <div className="flex gap-2">
-          <a
+          <a 
             href="https://www.linkedin.com/in/alfonsopintom/"
             target="_blank"
             rel="noopener noreferrer"
