@@ -36,26 +36,6 @@ function Movies() {
   const onNext = () => {
     setPage(pageNum + 1);
   };
-  /*emoji show and hide on hover*/
-  const showEmoji = (id) => {
-    setHovered(id);
-  };
-  const hideEmoji = () => {
-    setHovered("");
-  };
-  /*adding / removeing emojis to fav*/
-
-  const addEmoji = (id) => {
-    const newFav = [...favourites, id];
-    setFavorites(newFav);
-  };
-  const removeEmoji = (id) => {
-    // whichever elem -> not equal to my id
-    const filteredFav = favourites.filter((elem) => {
-      return elem !== id;
-    });
-    setFavorites(filteredFav);
-  };
 
   return (
     <div className="mt-3">
@@ -78,12 +58,8 @@ function Movies() {
           movies.map((movie) => {
             return (
               <div
-                onMouseOver={() => {
-                  showEmoji(movie.id);
-                }}
-                onMouseLeave={() => {
-                  hideEmoji(movie.id);
-                }}
+                onMouseOver={() => {}}
+                onMouseLeave={() => {}}
                 key={movie.id}
                 className="
                 bg-center bg-cover    
@@ -118,9 +94,7 @@ function Movies() {
                       className="
                                 text-2xl
                                 "
-                      onClick={() => {
-                        addEmoji(movie.id);
-                      }}
+                      onClick={() => {}}
                     >
                       😍
                     </div>
@@ -129,9 +103,7 @@ function Movies() {
                       className="
                                 text-2xl
                                 "
-                      onClick={() => {
-                        removeEmoji(movie.id);
-                      }}
+                      onClick={() => {}}
                     >
                       ❌
                     </div>
