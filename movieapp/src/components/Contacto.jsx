@@ -21,13 +21,13 @@ const formularioContactoJSON = {
       nombre: 'message',
       etiqueta: 'Mensaje',
       placeholder: 'Escriba su mensaje aquí...',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full',
+      clase: 'border-2 border-gray-300 p-2 mb-3 w-full h-full',  // Aumenta la altura del campo de texto
     },
   ],
   boton: {
     tipo: 'submit',
     etiqueta: 'Enviar',
-    clase: 'bg-blue-500 text-white px-4 py-2 rounded-md',
+    clase: 'bg-blue-500 text-white px-4 py-2 rounded-md mb-5',
   },
 };
 
@@ -41,37 +41,46 @@ function Contacto() {
   const handleMessageChange = (e) => setMessage(e.target.value);
 
   return (
-    <div className="flex flex-col items-center p-3">
-      <h1 className="text-4xl font-bold mt-10 mb-6">Contacto</h1>
-      <p className="text-lg mb-4">
-        Puedes contactarnos vía <strong>pelicuranking@contacto.com</strong>.
-      </p>
-      <div className="flex flex-col items-center max-w-md w-full">
-        <form className="flex flex-col items-stretch"> {/* Alinea y ocupa el mismo espacio */}
-          {formularioContactoJSON.campos.map((campo, index) => (
-            <div key={index} className="mb-3">
-              <label className="text-lg font-semibold">{campo.etiqueta}</label>
-              <input
-                type={campo.tipo}
-                name={campo.nombre}
-                className={campo.clase}
-                onChange={campo.onChange}
-                placeholder={campo.placeholder}
-              />
-            </div>
-          ))}
-          <button
-            type={formularioContactoJSON.boton.tipo}
-            className={formularioContactoJSON.boton.clase}
-          >
-            {formularioContactoJSON.boton.etiqueta}
-          </button>
-        </form>
+    <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow">
+      <div className="flex flex-col items-center">
+        <h1 className="text-4xl font-bold mt-6 mb-2">Contacto</h1>
+        <p className="text-lg text-center mb-4">
+          Puedes contactarnos vía <strong>pelicuranking@contacto.com</strong>.
+        </p>
+        <div className="flex flex-col items-center">
+          <form className="flex flex-col items-stretch">
+            {formularioContactoJSON.campos.map((campo, index) => (
+              <div key={index} className="mb-3">
+                <label className="text-lg font-semibold">{campo.etiqueta}</label>
+                {campo.tipo === 'textarea' ? (
+                  <textarea
+                    name={campo.nombre}
+                    className={campo.clase}
+                    onChange={campo.onChange}
+                    placeholder={campo.placeholder}
+                  />
+                ) : (
+                  <input
+                    type={campo.tipo}
+                    name={campo.nombre}
+                    className={campo.clase}
+                    onChange={campo.onChange}
+                    placeholder={campo.placeholder}
+                  />
+                )}
+              </div>
+            ))}
+            <button
+              type={formularioContactoJSON.boton.tipo}
+              className={formularioContactoJSON.boton.clase}
+            >
+              {formularioContactoJSON.boton.etiqueta}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
 
 export default Contacto;
-
-
