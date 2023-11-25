@@ -22,8 +22,11 @@ const styles = {
   cardContainer: {
     display: "flex",
     justifyContent: "space-around",
+    alignItems: "flex-start",  // Cambiado de "center" a "flex-start"
+    flexWrap: "wrap",
     marginTop: "20px",
   },
+  
   card: {
     backgroundColor: "#f8f9fa", // Light grayish-blue background
     borderRadius: "10px",
@@ -37,9 +40,9 @@ const styles = {
   },
   image: {
     width: "150px",
-    height: "200px",
+    height: "150px",  // Ajusta la altura para que sea igual al ancho
     marginBottom: "20px",
-    borderRadius: "5px",
+    borderRadius: "50%",  // Hace que la imagen sea un círculo
   },
   title: {
     textAlign: "center",
@@ -103,7 +106,7 @@ function Acerca() {
           >
             <div style={styles.container} className="p-3">
               <div style={styles.header}>
-                <h1>Acerca de la historia de PelicuRanking</h1>
+                <h1>Acerca de la historia de FilmoRanking</h1>
               </div>
               <p className=" text-xl ">{textoAleatorio}</p>
               <div style={styles.header}>
@@ -126,18 +129,17 @@ function Acerca() {
                       <p>
                         Soy Alfonso, un estudiante de Ingeniería Civil
                         Informática con una pasión por la tecnología y el
-                        aprendizaje. En mi tiempo libre, disfruto jugando al
-                        fútbol, ya sea en la cancha o viendo partidos. Además,
+                        aprendizaje. En mi tiempo libre, disfruto del fútbol, 
+                        ya sea jugando o viendo partidos. Además,
                         me cautiva el mundo de la Inteligencia Artificial y su
                         capacidad para transformar la forma en que interactuamos
-                        con la tecnología y el mundo que nos rodea. Me encanta
-                        aprender cosas nuevas, y estoy constantemente buscando
+                        con la tecnología y el mundo. Me encanta
+                        aprender cosas nuevas y estoy constantemente buscando
                         nuevas oportunidades para aprender y crecer como persona
                         y profesional. Me considero una persona muy trabajadora
                         y responsable, y siempre estoy dispuesto a asumir nuevos
                         desafíos y responsabilidades. Me gusta trabajar en
-                        equipo porque creo que todos podemos aprender algo de
-                        los demás
+                        equipo porque me gusta aprender de los demas y afrontar nuevos desafíos
                       </p>
                     </section>
                   </div>
@@ -185,24 +187,23 @@ function Acerca() {
                     <h3 style={styles.title}>Jorge Becerra</h3>
                     <ul style={styles.infoList}>
                       <li>Carrera: Ingeniería Civil Informática</li>
-                      <li>Edad: 20 años</li>
+                      <li>Edad: 21 años</li>
                     </ul>
                     <section style={styles.presentation}>
                       <p>
                         Actualmente, estoy matriculado en la carrera de
                         Ingeniería CivilInformática, y mi viaje académico
-                        comenzó en el año 2021. Ademásde mis estudios, dedico
-                        tiempo a diversas actividades queenriquecen mi vida.
-                        Tengo un gran interés por el deporte,particularmente el
-                        fútbol, el cual disfruto tanto viendo comojugando. La
+                        comenzó en el año 2021. Además de mis estudios, dedico
+                        tiempo a diversas actividades que enriquecen mi vida.
+                        Tengo un gran interés por el deporte, particularmente el
+                        fútbol, el cual disfruto tanto viendo como jugando. La
                         música es otra pasión que me define, ya que toco
-                        laguitarra con entusiasmo, y encuentro en ella una forma
-                        deexpresión y creatividad. Además, me siento atraído por
-                        losvideojuegos de última generación, explorando mundos
-                        virtuales ydesafiando mi destreza en diversas
-                        plataformas. Con 20 años deedad, considero que mi
-                        enfoque y madurez en mis estudios yactividades resaltan
-                        cualidades prometedoras para mi crecimientopersonal y
+                        guitarra eléctrica, siento que es una forma de expresarse. Además, me siento atraído por
+                        los videojuegos, explorando mundos
+                        virtuales y desafiando mi destreza en diversas
+                        plataformas. Con 21 años deedad, considero que mi
+                        enfoque y madurez en mis estudios y actividades resaltan
+                        cualidades prometedoras para mi crecimiento personal y
                         profesional.
                       </p>
                     </section>
