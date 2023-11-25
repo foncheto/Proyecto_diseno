@@ -46,7 +46,7 @@ function Banner() {
             }}
           >
             <div className=" font-bold text-7xl md:text-7xl text-white bg-gray-900 bg-opacity-60 p-8 text-center w-full">
-              PelicuRanking
+              FilmoRanking
             </div>
           </div>
         </>
