@@ -1,21 +1,21 @@
+// Footer.jsx
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faNode,
-  faReact,
   faLinkedin,
   faWhatsapp,
   faGithub,
+  faNode,
   faDiscord,
+  faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
     <div className="flex flex-col items-center p-4 bg-gray-900 text-white fixed bottom-0 w-full">
-      <div className="mb-4 flex items-start">
-        <div className="mr-auto">
-          <p className="font-bold mb-2 p-2">Síguenos en Redes Sociales</p>
-        </div>
+      <div className="flex items-start w-full mb-2">
+        <p className="font-bold mr-auto">Síguenos en Redes Sociales</p>
         <div className="flex gap-2">
           <a
             href="https://www.linkedin.com/in/alfonsopintom/"
@@ -43,10 +43,8 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="flex items-start">
-        <div className="ml-auto">
-          <p className="font-bold mb-2 p-2">Agradecimientos</p>
-        </div>
+      <div className="flex items-start w-full mt-2">
+        <p className="font-bold mr-auto">Agradecimientos</p>
         <div className="flex gap-2">
           <FontAwesomeIcon icon={faNode} size="2x" className="icon-red" />
           <FontAwesomeIcon icon={faDiscord} size="2x" className="icon-red" />

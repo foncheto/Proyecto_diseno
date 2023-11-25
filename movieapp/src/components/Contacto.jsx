@@ -21,7 +21,7 @@ const formularioContactoJSON = {
       nombre: 'message',
       etiqueta: 'Mensaje',
       placeholder: 'Escriba su mensaje aquí...',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full h-full',  // Aumenta la altura del campo de texto
+      clase: 'border-2 border-gray-300 p-2 mb-3 w-full h-40', // Ajustar la altura del textarea según sea necesario
     },
   ],
   boton: {
@@ -41,7 +41,7 @@ function Contacto() {
   const handleMessageChange = (e) => setMessage(e.target.value);
 
   return (
-    <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow">
+    <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow mb-16"> {/* Añadir mb-16 para dejar espacio para el footer */}
       <div className="flex flex-col items-center">
         <h1 className="text-4xl font-bold mt-6 mb-2">Contacto</h1>
         <p className="text-lg text-center mb-4">
