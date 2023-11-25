@@ -106,7 +106,7 @@ function Acerca() {
           >
             <div style={styles.container} className="p-3">
               <div style={styles.header}>
-                <h1>Acerca de la historia de PelicuRanking</h1>
+                <h1>Acerca de la historia de FilmoRanking</h1>
               </div>
               <p className=" text-xl ">{textoAleatorio}</p>
               <div style={styles.header}>
