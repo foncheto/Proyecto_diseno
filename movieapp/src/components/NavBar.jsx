@@ -55,7 +55,11 @@ function NavBar() {
         className="flex items-center space-x-4 p-2"
         style={{ marginRight: "10px" }}
       >
-        <Link to="/series" className="text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/registrarse"
+          className="text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           Sign Up
         </Link>
         <Link to="/login" className="text-xl" style={{ color: "#FFFFFF" }}>

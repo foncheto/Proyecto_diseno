@@ -157,17 +157,19 @@ function Ranking() {
                       src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
                       alt=""
                     />
-                    <div class="font-semibold text-lg p-5">
+                    <div class="font-semibold text-2xl p-5">
                       {movie.title || movie.name}
                     </div>
                   </th>
-                  <td class="px-6 pl-12 py-4">
+                  <td class="px-6 pl-12 py-4 text-xl">
                     {movie.vote_average.toFixed(2)}
                   </td>
-                  <td class="px-6 py-4 pl-12">{movie.popularity.toFixed(2)}</td>
+                  <td class="px-6 py-4 pl-12 text-xl">
+                    {movie.popularity.toFixed(2)}
+                  </td>
                   <td class="px-6 py-4">
                     <div class="flex gap-2">
-                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600">
+                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600 text-2xl">
                         {genreids[movie.genre_ids[0]]}
                       </span>
                     </div>
