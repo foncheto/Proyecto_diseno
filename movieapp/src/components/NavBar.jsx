@@ -15,24 +15,46 @@ function NavBar() {
         <Link to="/" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
           Home
         </Link>
-        <Link to="/peliculas" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/peliculas"
+          className="font-bold text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           Films
         </Link>
-        <Link to="/series" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/series"
+          className="font-bold text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           Series
         </Link>
-        <Link to="/ranking" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/ranking"
+          className="font-bold text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           Ranking
         </Link>
-        <Link to="/contacto" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/contacto"
+          className="font-bold text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           Contact
         </Link>
-        <Link to="/acerca" className="font-bold text-xl" style={{ color: "#FFFFFF" }}>
+        <Link
+          to="/acerca"
+          className="font-bold text-xl"
+          style={{ color: "#FFFFFF" }}
+        >
           About us
         </Link>
       </div>
-      <div className="flex items-center space-x-4"
-      style={{ marginRight: "10px" }}>
+      <div
+        className="flex items-center space-x-4 p-2"
+        style={{ marginRight: "10px" }}
+      >
         <Link to="/series" className="text-xl" style={{ color: "#FFFFFF" }}>
           Sign Up
         </Link>
