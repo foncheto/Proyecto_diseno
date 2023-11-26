@@ -52,79 +52,76 @@ function TvDetail() {
     setHovered("");
   };
 
-  const addEmoji = (id) => {
-    const newFav = [...favourites, id];
-    setFavorites(newFav);
-  };
-
-  const removeEmoji = (id) => {
-    const filteredFav = favourites.filter((elem) => {
-      return elem !== id;
-    });
-    setFavorites(filteredFav);
+  const backdropStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "38.7%",
+    zIndex: -1,
+    opacity: 0.15, // Opacidad del fondo
+    backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "8px"
   };
 
   return (
-    <div className="">
-<div className="md:w-full border-black border-2 rounded-lg mb-8" style={{ display: "flex", alignItems: "center",}}>
-  {/* Contenido de la izquierda */}
-  <div style={{ flex: "1", marginRight: "20px" }}>
-    <img
-      src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
-      alt="foto"
-      style={{ width: "30%", borderRadius: "8px", marginLeft: "20px", marginTop: "20px", marginBottom: "20px" }}
-    />
-  </div>
-  <div
-    className="mt-8 text-center font-serif text-justify"
-    style={{
-      flex: "1",
-      marginLeft: "-600px",
-      marginBottom: "70px",
-    }}
-  >
-    <div style={{ }}>
-      <div
-        className="mx-auto"
-        style={{
-          fontSize: "200%",
-          fontFamily: "sans-serif",
-        }}
-      >
-        {movie.title}
+    <div className="" style={{ position: "relative", minHeight: "100vh" }}>
+      <div style={backdropStyle}></div>
+      <div className="md:w-full border-black border-2 rounded-lg mb-8" style={{ display: "flex", alignItems: "center"}}>
+        <div style={{ flex: "1", marginRight: "20px" }}>
+          <img
+            src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
+            alt="foto"
+            style={{ width: "30%", borderRadius: "8px", marginLeft: "20px", marginTop: "20px", marginBottom: "20px" }}
+          />
+        </div>
+        <div
+          className="mt-8 text-center font-serif text-justify"
+          style={{
+            flex: "1",
+            marginLeft: "-600px",
+            marginBottom: "70px",
+          }}
+        >
+          <div style={{ }}>
+            <div
+              className="mx-auto"
+              style={{
+                fontSize: "200%",
+                fontFamily: "sans-serif",
+              }}
+            >
+              {movie.title}
+            </div>
+          </div>
+          <div style={{ marginBottom: "10px", fontFamily: "sans-serif", }}>
+            <div
+              className="mx-auto"
+            >
+              {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime} min ▪️ {movie.vote_count} votos ▪️ Idioma: {movie.original_language}
+            </div>
+          </div>
+          <div style={{ fontFamily: "sans-serif", fontSize: "20px", marginTop: "30px" }}>Vista General</div>
+          <div
+            style={{
+              padding: "10px",
+              borderRadius: "10px",
+              width: "fit-content",
+              marginRight: "15px",
+              marginTop: "10px",
+              fontFamily: "sans-serif",
+            }}
+          >
+            {movie.overview}
+          </div>
+        </div>
       </div>
-    </div>
-    <div style={{ marginBottom: "10px", fontFamily: "sans-serif", }}>
-      <div
-        className="mx-auto"
-      >
-        {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime} min ▪️ {movie.vote_count} votos ▪️ Idioma: {movie.original_language}
-
-      </div>
-    </div>
-    <div style={{ fontFamily: "sans-serif", fontSize: "20px", marginTop: "30px" }}>Vista General</div>
-    <div
-      style={{
-        backgroundColor: "lightgrey",
-        padding: "10px",
-        borderRadius: "10px",
-        width: "fit-content",
-        marginRight: "15px",
-        marginTop: "10px",
-        fontFamily: "sans-serif",
-      }}
-    >
-      {movie.overview}
-    </div>
-  </div>
-</div>
-
-
       <div className="md:w-full border-black border-2 rounded-lg">
-        {/* Contenido de la derecha */}
         <div className="mt-8">
           <div className="mb-8 font-bold text-2xl text-center text-3xl">
-            Otras peliculas
+            Otras Peliculas
           </div>
           <div className="flex flex-wrap justify-center">
             {movies.length === 0 ? (

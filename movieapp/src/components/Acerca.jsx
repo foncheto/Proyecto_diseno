@@ -65,7 +65,7 @@ const styles = {
 
 function Acerca() {
   const textoAleatorio =
-    "Nuestra misión en PelicuRanking es construir una plataforma innovadora que eleve la experiencia cinematográfica para los amantes del séptimo arte. Nos esforzamos por ofrecer un espacio donde la pasión por las películas se encuentre con la tecnología de vanguardia. Al crear esta página web, buscamos proporcionar a los usuarios no solo la oportunidad de descubrir y clasificar películas, sino también de explorar lo último en el mundo del cine. ¡Bienvenido a nuestra comunidad de amantes del cine, donde cada clic es un paso hacia una experiencia cinematográfica extraordinaria!";
+    "Our mission at PelicuRanking is to build an innovative platform that enhances the cinematic experience for lovers of the seventh art. We strive to provide a space where passion for movies meets cutting-edge technology. By creating this website, we aim to offer users not only the opportunity to discover and rate movies but also to explore the latest in the world of cinema. Welcome to our community of movie enthusiasts, where every click is a step towards an extraordinary cinematic experience!";
   let [bannerMovie, setBanner] = useState("");
 
   useEffect(function () {
@@ -106,11 +106,11 @@ function Acerca() {
           >
             <div style={styles.container} className="p-3">
               <div style={styles.header}>
-                <h1>Acerca de la historia de FilmoRanking</h1>
+                <h1>About FilmoRanking's history</h1>
               </div>
               <p className=" text-xl ">{textoAleatorio}</p>
               <div style={styles.header}>
-                <h1>Nuestro Equipo</h1>
+                <h1>Our Team</h1>
               </div>
               <div style={styles.cardContainer}>
                 <div style={styles.card} className="shadow">
@@ -122,24 +122,12 @@ function Acerca() {
                   <div>
                     <h3 style={styles.title}>Alfonso Pinto</h3>
                     <ul style={styles.infoList}>
-                      <li>Carrera: Ingeniería Civil Informática</li>
-                      <li>Edad: 21 años</li>
+                      <li>Major: Civil Computer Engineering</li>
+                      <li>Age: 21 years old</li>
                     </ul>
                     <section style={styles.presentation}>
                       <p>
-                        Soy Alfonso, un estudiante de Ingeniería Civil
-                        Informática con una pasión por la tecnología y el
-                        aprendizaje. En mi tiempo libre, disfruto del fútbol, 
-                        ya sea jugando o viendo partidos. Además,
-                        me cautiva el mundo de la Inteligencia Artificial y su
-                        capacidad para transformar la forma en que interactuamos
-                        con la tecnología y el mundo. Me encanta
-                        aprender cosas nuevas y estoy constantemente buscando
-                        nuevas oportunidades para aprender y crecer como persona
-                        y profesional. Me considero una persona muy trabajadora
-                        y responsable, y siempre estoy dispuesto a asumir nuevos
-                        desafíos y responsabilidades. Me gusta trabajar en
-                        equipo porque me gusta aprender de los demas y afrontar nuevos desafíos
+                      I'm Alfonso, a Civil Computer Engineering student with a passion for technology and learning. In my free time, I enjoy playing or watching football matches. Additionally, I'm captivated by the world of Artificial Intelligence and its ability to transform how we interact with technology and the world. I love acquiring new knowledge and am constantly seeking opportunities to learn and grow, both personally and professionally. I consider myself a hardworking and responsible individual, always eager to take on new challenges and responsibilities. I thrive in teamwork because I enjoy learning from others and tackling new challenges.
                       </p>
                     </section>
                   </div>
@@ -154,24 +142,12 @@ function Acerca() {
                   <div>
                     <h3 style={styles.title}>Pablo Gómez</h3>
                     <ul style={styles.infoList}>
-                      <li>Carrera: Ingeniería Civil Informática</li>
-                      <li>Edad: 26 años</li>
+                      <li>Major: Civil Computer Engineering</li>
+                      <li>Age: 26 years old</li>
                     </ul>
                     <section style={styles.presentation}>
                       <p>
-                        Mi nombre es Pablo Gómez, soy estudiante de Ingeniería
-                        Civil Informática. Tengo un leve conocimiento de hacer
-                        páginas web porque tuve el mismo profesor en
-                        Introducción a la Ingeniería. Además, me gusta jugar en
-                        la computadora y ver películas. A veces, cuando no tengo
-                        nada que hacer, me pongo a programar cosas básicas. Uno
-                        de mis hobbies es lavar autos, me gusta dejarlos limpios
-                        tanto por dentro como por fuera. No tengo una empresa de
-                        lavados, pero tengo muchos clientes frecuentes que a
-                        menudo me piden lavados. No cobro exageradamente mucho
-                        porque prefiero tener clientela frecuente a un costo
-                        razonable. Si alguien está interesado en tener su auto
-                        limpio, no dude en contactarme.
+                      My name is Pablo Gómez, and I'm a Civil Computer Engineering student. I have some basic knowledge of web development as I had the same professor in Introduction to Engineering. Besides, I enjoy gaming on the computer and watching movies. Sometimes, when I have free time, I dabble in programming basic things. One of my hobbies is washing cars; I take pleasure in ensuring they are clean both inside and out. While I don't run a car wash business, I have many frequent customers who often request my services. I don't charge excessively high rates because I prefer having regular clients at a reasonable cost. If anyone is interested in having their car cleaned, feel free to contact me.
                       </p>
                     </section>
                   </div>
@@ -186,25 +162,12 @@ function Acerca() {
                   <div>
                     <h3 style={styles.title}>Jorge Becerra</h3>
                     <ul style={styles.infoList}>
-                      <li>Carrera: Ingeniería Civil Informática</li>
-                      <li>Edad: 21 años</li>
+                      <li>Major: Civil Computer Engineering</li>
+                      <li>Age: 21 years old</li>
                     </ul>
                     <section style={styles.presentation}>
                       <p>
-                        Actualmente, estoy matriculado en la carrera de
-                        Ingeniería CivilInformática, y mi viaje académico
-                        comenzó en el año 2021. Además de mis estudios, dedico
-                        tiempo a diversas actividades que enriquecen mi vida.
-                        Tengo un gran interés por el deporte, particularmente el
-                        fútbol, el cual disfruto tanto viendo como jugando. La
-                        música es otra pasión que me define, ya que toco
-                        guitarra eléctrica, siento que es una forma de expresarse. Además, me siento atraído por
-                        los videojuegos, explorando mundos
-                        virtuales y desafiando mi destreza en diversas
-                        plataformas. Con 21 años deedad, considero que mi
-                        enfoque y madurez en mis estudios y actividades resaltan
-                        cualidades prometedoras para mi crecimiento personal y
-                        profesional.
+                      Currently, I'm enrolled in the Civil Computer Engineering program, and my academic journey began in 2021. Apart from my studies, I devote time to various activities that enrich my life. I have a keen interest in sports, particularly football, which I enjoy both watching and playing. Music is another defining passion for me as I play the electric guitar; I feel it's a form of expression. Additionally, I'm drawn to video games, exploring virtual worlds and challenging my skills across different platforms. At 21 years old, I believe my focus and maturity in my studies and activities highlight promising qualities for my personal and professional growth.
                       </p>
                     </section>
                   </div>
