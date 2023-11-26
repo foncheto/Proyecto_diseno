@@ -89,6 +89,7 @@ function TvDetail() {
             <div
               className="mx-auto"
               style={{
+                fontWeight: "bold",
                 fontSize: "200%",
                 fontFamily: "sans-serif",
               }}
