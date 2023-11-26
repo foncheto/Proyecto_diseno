@@ -135,11 +135,6 @@ function Movies() {
           })
         )}
       </div>
-      <Pagination
-        pageNum={pageNum}
-        onPrev={onPrev}
-        onNext={onNext}
-      ></Pagination>
     </div>
   );
 }
