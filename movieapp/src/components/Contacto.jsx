@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const formularioContactoJSON = {
   campos: [
@@ -21,7 +22,7 @@ const formularioContactoJSON = {
       nombre: 'message',
       etiqueta: 'Mensaje',
       placeholder: 'Escriba su mensaje aquí...',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full h-40', // Ajustar la altura del textarea según sea necesario
+      clase: 'border-2 border-gray-300 p-2 mb-3 w-full h-40',
     },
   ],
   boton: {
@@ -35,20 +36,42 @@ function Contacto() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [envioExitoso, setEnvioExitoso] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleMessageChange = (e) => setMessage(e.target.value);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lógica para enviar el mensaje (puede ser una llamada a una API, etc.)
+
+    // Simulación de envío exitoso
+    setEnvioExitoso(true);
+
+    // Limpiar campos después de un tiempo y redirigir al inicio
+    setTimeout(() => {
+      setName("");
+      setEmail("");
+      setMessage("");
+      setEnvioExitoso(false);
+      navigate('/'); // Redirige a la página de inicio
+    }, 2000);
+  };
+
   return (
-    <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow mb-16"> {/* Añadir mb-16 para dejar espacio para el footer */}
+    <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow mb-16">
       <div className="flex flex-col items-center">
         <h1 className="text-4xl font-bold mt-6 mb-2">Contacto</h1>
+        {envioExitoso && (
+          <p className="text-green-500 mb-4">Tu mensaje fue enviado con éxito.</p>
+        )}
         <p className="text-lg text-center mb-4">
           Puedes contactarnos vía <strong>pelicuranking@contacto.com</strong>.
         </p>
         <div className="flex flex-col items-center">
-          <form className="flex flex-col items-stretch">
+          <form onSubmit={handleSubmit} className="flex flex-col items-stretch">
             {formularioContactoJSON.campos.map((campo, index) => (
               <div key={index} className="mb-3">
                 <label className="text-lg font-semibold">{campo.etiqueta}</label>
@@ -56,7 +79,8 @@ function Contacto() {
                   <textarea
                     name={campo.nombre}
                     className={campo.clase}
-                    onChange={campo.onChange}
+                    onChange={handleMessageChange}
+                    value={message}
                     placeholder={campo.placeholder}
                   />
                 ) : (
@@ -64,7 +88,8 @@ function Contacto() {
                     type={campo.tipo}
                     name={campo.nombre}
                     className={campo.clase}
-                    onChange={campo.onChange}
+                    onChange={campo.nombre === 'name' ? handleNameChange : handleEmailChange}
+                    value={campo.nombre === 'name' ? name : email}
                     placeholder={campo.placeholder}
                   />
                 )}
