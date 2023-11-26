@@ -4,8 +4,8 @@ import axios from "axios";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
-  const [sortBy, setSortBy] = useState("vote_average"); // Default sorting by vote_average
-  const [sortOrder, setSortOrder] = useState("desc"); // Default sorting order descending
+  const [sortBy, setSortBy] = useState("vote_average");
+  const [sortOrder, setSortOrder] = useState("desc");
   const [selectedGenre, setSelectedGenre] = useState("All Genres");
   let genreids = {
     28: "Action",
@@ -98,10 +98,16 @@ function Ranking() {
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                class="px-6 py-4 font-medium text-gray-900 text-2xl p-3"
+              >
                 Name
               </th>
-              <th scope="col" class="px-6 py-4 font-medium text-gray-900">
+              <th
+                scope="col"
+                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+              >
                 <div className="flex">
                   <img
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
@@ -114,7 +120,10 @@ function Ranking() {
                   ></img>
                 </div>
               </th>
-              <th scope="col" class="px-6 py-4 font-medium text-gray-900 ">
+              <th
+                scope="col"
+                class="px-2 py-2 font-medium text-gray-900 text-2xl"
+              >
                 <div className="flex">
                   <img
                     src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
@@ -127,7 +136,10 @@ function Ranking() {
                   ></img>
                 </div>
               </th>
-              <th scope="col" class="px-6 py-4 font-medium text-gray-900 ">
+              <th
+                scope="col"
+                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+              >
                 Genre
               </th>
             </tr>
@@ -141,11 +153,11 @@ function Ranking() {
                 <tr class="hover:bg-gray-50" key={movie.id}>
                   <th class="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2">
                     <img
-                      class="h-[6rem]  w-[10rem] object-fit"
+                      class="h-[10rem]  w-[10rem] object-fit"
                       src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
                       alt=""
                     />
-                    <div class="font-medium text-gray-700  text-sm">
+                    <div class="font-semibold text-lg p-5">
                       {movie.title || movie.name}
                     </div>
                   </th>
@@ -166,7 +178,6 @@ function Ranking() {
           </tbody>
         </table>
       </div>
-      <Pagination></Pagination>
     </>
   );
 }
