@@ -20,8 +20,8 @@ function Movies() {
               pageNum
           )
           .then((res) => {
-            // console.table(res.data.results);
-            setMovies(res.data.results);
+            console.table(res.data.results);
+            setMovies(res.data.results.slice(0, 16));
           });
       })();
     },
@@ -57,11 +57,20 @@ function Movies() {
         ) : (
           movies.map((movie) => {
             return (
-              <div
-                onMouseOver={() => {}}
-                onMouseLeave={() => {}}
-                key={movie.id}
-                className="
+              <>
+                <Link
+                  to={`/${movie.media_type}/${movie.id}`}
+                  className="font-bold 
+                                text-xl
+                                text-blue-400
+                                "
+                >
+                  {" "}
+                  <div
+                    onMouseOver={() => {}}
+                    onMouseLeave={() => {}}
+                    key={movie.id}
+                    className="
                 bg-center bg-cover    
                 w-[160px]
                 h-[30vh]
@@ -74,43 +83,23 @@ function Movies() {
                  flex items-end 
                  relative
                 "
-                style={{
-                  backgroundImage: `url(
+                    style={{
+                      backgroundImage: `url(
                                     https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,
-                }}
-              >
-                <div
-                  className="p-2
+                    }}
+                  >
+                    <div
+                      className="p-2
  bg-gray-900
                                 absolute top-2 right-2
                                 rounded-xl
                                "
-                  style={{
-                    display: hovered === movie.id ? "block" : "none",
-                  }}
-                >
-                  {favourites.includes(movie.id) === false ? (
+                      style={{
+                        display: hovered === movie.id ? "block" : "none",
+                      }}
+                    ></div>
                     <div
                       className="
-                                text-2xl
-                                "
-                      onClick={() => {}}
-                    >
-                      😍
-                    </div>
-                  ) : (
-                    <div
-                      className="
-                                text-2xl
-                                "
-                      onClick={() => {}}
-                    >
-                      ❌
-                    </div>
-                  )}
-                </div>
-                <div
-                  className="
                     font-bold text-white
                 bg-gray-900 bg-opacity-60
                 p-2
@@ -118,19 +107,13 @@ function Movies() {
                 w-full
                 rounded-b-xl text-decoration-none
                 "
-                >
-                  <Link
-                    to={`/${movie.media_type}/${movie.id}`}
-                    className="font-bold 
-                                text-xl
-                                text-blue-400
-                                "
-                  >
-                    {" "}
-                    {movie.title || movie.name}
-                  </Link>
-                </div>
-              </div>
+                    >
+                      {" "}
+                      {movie.title || movie.name}
+                    </div>
+                  </div>
+                </Link>
+              </>
             );
           })
         )}

@@ -30,7 +30,7 @@ function TvDetail() {
           pageNum
       )
       .then((res) => {
-        setMovies(res.data.results);
+        setMovies(res.data.results.slice(0, 13));
       });
   }, [pageNum]);
 
@@ -63,48 +63,64 @@ function TvDetail() {
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    borderRadius: "8px"
+    borderRadius: "8px",
   };
 
   return (
     <div className="" style={{ position: "relative", minHeight: "100vh" }}>
       <div style={backdropStyle}></div>
-      <div className="md:w-full border-black border-2 rounded-lg mb-8" style={{ display: "flex", alignItems: "center"}}>
-        <div style={{ flex: "1", marginRight: "20px" }}>
+      <div
+        className="md:w-full border-black border-2 rounded-lg mb-8"
+        style={{ display: "flex", alignItems: "center" }}
+      >
+        <div style={{ flex: "1", marginRight: "10px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
-            style={{ width: "30%", borderRadius: "8px", marginLeft: "20px", marginTop: "20px", marginBottom: "20px" }}
+            style={{
+              width: "30%",
+              borderRadius: "8px",
+              marginLeft: "20px",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
           />
         </div>
         <div
-          className="mt-8 text-center font-serif text-justify"
+          className="mt-4 text-center font-serif text-justify"
           style={{
             flex: "1",
             marginLeft: "-600px",
             marginBottom: "70px",
           }}
         >
-          <div style={{ }}>
+          <div style={{}}>
             <div
-              className="mx-auto"
+              className="mx-auto text-5xl p-2"
               style={{
                 fontWeight: "bold",
-                fontSize: "200%",
                 fontFamily: "sans-serif",
               }}
             >
               {movie.title}
             </div>
           </div>
-          <div style={{ marginBottom: "10px", fontFamily: "sans-serif", }}>
-            <div
-              className="mx-auto"
-            >
-              {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime} min ▪️ {movie.vote_count} votos ▪️ Idioma: {movie.original_language}
+          <div style={{ marginBottom: "10px", fontFamily: "sans-serif" }}>
+            <div className="mx-auto text-lg p-2">
+              Release Date: {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️{" "}
+              {movie.runtime} min ▪️ {movie.vote_count} votes ▪️ Language:{" "}
+              {movie.original_language}
             </div>
           </div>
-          <div style={{ fontFamily: "sans-serif", fontSize: "20px", marginTop: "30px" }}>Vista General</div>
+          <div
+            style={{
+              fontFamily: "sans-serif",
+              fontSize: "20px",
+              marginTop: "30px",
+            }}
+          >
+            Overview
+          </div>
           <div
             style={{
               padding: "10px",
@@ -157,7 +173,6 @@ function TvDetail() {
               })
             )}
           </div>
-          <Pagination pageNum={pageNum} onPrev={onPrev} onNext={onNext} />
         </div>
       </div>
     </div>

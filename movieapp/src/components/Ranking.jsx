@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "./Pagination";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
+  let [votes, setVotes] = useState(0);
   const [sortBy, setSortBy] = useState("vote_average");
   const [sortOrder, setSortOrder] = useState("desc");
   const [selectedGenre, setSelectedGenre] = useState("All Genres");
@@ -59,7 +60,7 @@ function Ranking() {
 
   useEffect(() => {
     let temp = movies.map((movie) => genreids[movie.genre_ids[0]]);
-    // console.log(temp)
+    console.log(temp);
     temp = new Set(temp);
     setGenres(["All Genres", ...temp]);
   }, []);
@@ -79,21 +80,7 @@ function Ranking() {
           </button>
         ))}
       </div>
-      <div
-        className="mt-4 flex justify-center space-x-2
-      "
-      >
-        <input
-          type="text"
-          placeholder="search"
-          className=" border-2 py-1 px-2 text-center"
-        />
-        <input
-          type="number"
-          className="border-2 py-1 px-2 text-center"
-          value={1}
-        />
-      </div>
+
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
@@ -109,15 +96,15 @@ function Ranking() {
                 class="px-6 py-4 font-medium text-gray-900 text-2xl"
               >
                 <div className="flex">
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
-                    class="mr-2 cursor-pointer"
-                  ></img>
+                  <div>Votes</div>
+                </div>
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+              >
+                <div className="flex">
                   <div>Rating</div>
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
-                    class="ml-2 mr-2"
-                  ></img>
                 </div>
               </th>
               <th
@@ -125,15 +112,7 @@ function Ranking() {
                 class="px-2 py-2 font-medium text-gray-900 text-2xl"
               >
                 <div className="flex">
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
-                    class="mr-2 cursor-pointer"
-                  ></img>
                   <div>Popularity</div>
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
-                    class="ml-2 mr-2"
-                  ></img>
                 </div>
               </th>
               <th
@@ -152,22 +131,33 @@ function Ranking() {
               return (
                 <tr class="hover:bg-gray-50" key={movie.id}>
                   <th class="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2">
-                    <img
-                      class="h-[10rem]  w-[10rem] object-fit"
-                      src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
-                      alt=""
-                    />
-                    <div class="font-semibold text-lg p-5">
+                    <Link
+                      to={`/${movie.media_type}/${movie.id}`}
+                      className="font-bold 
+                                  text-xl
+                                  text-blue-400
+                                  "
+                    >
+                      <img
+                        class="h-[10rem]  w-[10rem] object-fit"
+                        src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
+                        alt=""
+                      />{" "}
+                    </Link>
+                    <div class="font-semibold text-2xl p-5">
                       {movie.title || movie.name}
                     </div>
                   </th>
-                  <td class="px-6 pl-12 py-4">
+                  <td class="px-6 py-4 text-xl">{movie.vote_count}</td>
+                  <td class="px-6 pl-12 py-4 text-xl">
                     {movie.vote_average.toFixed(2)}
                   </td>
-                  <td class="px-6 py-4 pl-12">{movie.popularity.toFixed(2)}</td>
+                  <td class="px-6 py-4 pl-12 text-xl">
+                    {movie.popularity.toFixed(2)}
+                  </td>
                   <td class="px-6 py-4">
                     <div class="flex gap-2">
-                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600">
+                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600 text-2xl">
                         {genreids[movie.genre_ids[0]]}
                       </span>
                     </div>
