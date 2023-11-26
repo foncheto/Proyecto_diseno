@@ -30,7 +30,7 @@ function TvDetail() {
           pageNum
       )
       .then((res) => {
-        setMovies(res.data.results.slice(0, 15));
+        setMovies(res.data.results.slice(0, 13));
       });
   }, [pageNum]);
 
@@ -73,7 +73,7 @@ function TvDetail() {
         className="md:w-full border-black border-2 rounded-lg mb-8"
         style={{ display: "flex", alignItems: "center" }}
       >
-        <div style={{ flex: "1", marginRight: "20px" }}>
+        <div style={{ flex: "1", marginRight: "10px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
@@ -87,7 +87,7 @@ function TvDetail() {
           />
         </div>
         <div
-          className="mt-8 text-center font-serif text-justify"
+          className="mt-4 text-center font-serif text-justify"
           style={{
             flex: "1",
             marginLeft: "-600px",
@@ -96,10 +96,9 @@ function TvDetail() {
         >
           <div style={{}}>
             <div
-              className="mx-auto"
+              className="mx-auto text-5xl p-2"
               style={{
                 fontWeight: "bold",
-                fontSize: "200%",
                 fontFamily: "sans-serif",
               }}
             >
@@ -107,9 +106,9 @@ function TvDetail() {
             </div>
           </div>
           <div style={{ marginBottom: "10px", fontFamily: "sans-serif" }}>
-            <div className="mx-auto">
-              {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime}{" "}
-              min ▪️ {movie.vote_count} votos ▪️ Idioma:{" "}
+            <div className="mx-auto text-lg p-2">
+              Release Date: {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️{" "}
+              {movie.runtime} min ▪️ {movie.vote_count} votes ▪️ Language:{" "}
               {movie.original_language}
             </div>
           </div>
@@ -120,7 +119,7 @@ function TvDetail() {
               marginTop: "30px",
             }}
           >
-            Vista General
+            Overview
           </div>
           <div
             style={{

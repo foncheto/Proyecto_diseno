@@ -15,10 +15,10 @@ const Footer = () => {
       {/* Primera "fila" */}
       <div className="flex items-start w-full mb-2 justify-between">
         <div>
-          <p className="font-bold">Síguenos en Redes Sociales</p>
+          <p className="font-bold">Follow Us On Our Social Media!</p>
         </div>
         <div>
-          <p className="font-bold">Agradecimientos</p>
+          <p className="font-bold">Special Thanks</p>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "./Pagination";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
@@ -80,16 +80,7 @@ function Ranking() {
           </button>
         ))}
       </div>
-      <div
-        className="mt-4 flex justify-center space-x-2
-      "
-      >
-        <input
-          type="text"
-          placeholder="search"
-          className=" border-2 py-1 px-2 text-center"
-        />
-      </div>
+
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
           <thead class="bg-gray-50">
@@ -140,11 +131,19 @@ function Ranking() {
               return (
                 <tr class="hover:bg-gray-50" key={movie.id}>
                   <th class="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2">
-                    <img
-                      class="h-[10rem]  w-[10rem] object-fit"
-                      src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
-                      alt=""
-                    />
+                    <Link
+                      to={`/${movie.media_type}/${movie.id}`}
+                      className="font-bold 
+                                  text-xl
+                                  text-blue-400
+                                  "
+                    >
+                      <img
+                        class="h-[10rem]  w-[10rem] object-fit"
+                        src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
+                        alt=""
+                      />{" "}
+                    </Link>
                     <div class="font-semibold text-2xl p-5">
                       {movie.title || movie.name}
                     </div>
