@@ -30,7 +30,7 @@ function TvDetail() {
           pageNum
       )
       .then((res) => {
-        setMovies(res.data.results);
+        setMovies(res.data.results.slice(0, 15));
       });
   }, [pageNum]);
 
@@ -63,18 +63,27 @@ function TvDetail() {
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    borderRadius: "8px"
+    borderRadius: "8px",
   };
 
   return (
     <div className="" style={{ position: "relative", minHeight: "100vh" }}>
       <div style={backdropStyle}></div>
-      <div className="md:w-full border-black border-2 rounded-lg mb-8" style={{ display: "flex", alignItems: "center"}}>
+      <div
+        className="md:w-full border-black border-2 rounded-lg mb-8"
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <div style={{ flex: "1", marginRight: "20px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
-            style={{ width: "30%", borderRadius: "8px", marginLeft: "20px", marginTop: "20px", marginBottom: "20px" }}
+            style={{
+              width: "30%",
+              borderRadius: "8px",
+              marginLeft: "20px",
+              marginTop: "20px",
+              marginBottom: "20px",
+            }}
           />
         </div>
         <div
@@ -85,7 +94,7 @@ function TvDetail() {
             marginBottom: "70px",
           }}
         >
-          <div style={{ }}>
+          <div style={{}}>
             <div
               className="mx-auto"
               style={{
@@ -97,14 +106,22 @@ function TvDetail() {
               {movie.title}
             </div>
           </div>
-          <div style={{ marginBottom: "10px", fontFamily: "sans-serif", }}>
-            <div
-              className="mx-auto"
-            >
-              {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime} min ▪️ {movie.vote_count} votos ▪️ Idioma: {movie.original_language}
+          <div style={{ marginBottom: "10px", fontFamily: "sans-serif" }}>
+            <div className="mx-auto">
+              {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️ {movie.runtime}{" "}
+              min ▪️ {movie.vote_count} votos ▪️ Idioma:{" "}
+              {movie.original_language}
             </div>
           </div>
-          <div style={{ fontFamily: "sans-serif", fontSize: "20px", marginTop: "30px" }}>Vista General</div>
+          <div
+            style={{
+              fontFamily: "sans-serif",
+              fontSize: "20px",
+              marginTop: "30px",
+            }}
+          >
+            Vista General
+          </div>
           <div
             style={{
               padding: "10px",
@@ -157,7 +174,6 @@ function TvDetail() {
               })
             )}
           </div>
-          <Pagination pageNum={pageNum} onPrev={onPrev} onNext={onNext} />
         </div>
       </div>
     </div>

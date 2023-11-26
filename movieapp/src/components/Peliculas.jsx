@@ -119,31 +119,7 @@ function Peliculas() {
                   style={{
                     display: hovered === movie.id ? "block" : "none",
                   }}
-                >
-                  {favourites.includes(movie.id) === false ? (
-                    <div
-                      className="
-                                text-2xl
-                                "
-                      onClick={() => {
-                        addEmoji(movie.id);
-                      }}
-                    >
-                      😍
-                    </div>
-                  ) : (
-                    <div
-                      className="
-                                text-2xl
-                                "
-                      onClick={() => {
-                        removeEmoji(movie.id);
-                      }}
-                    >
-                      ❌
-                    </div>
-                  )}
-                </div>
+                ></div>
                 <div
                   className="
                     font-bold text-white

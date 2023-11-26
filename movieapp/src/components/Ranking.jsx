@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
+  let [votes, setVotes] = useState(0);
   const [sortBy, setSortBy] = useState("vote_average");
   const [sortOrder, setSortOrder] = useState("desc");
   const [selectedGenre, setSelectedGenre] = useState("All Genres");
@@ -59,7 +60,7 @@ function Ranking() {
 
   useEffect(() => {
     let temp = movies.map((movie) => genreids[movie.genre_ids[0]]);
-    // console.log(temp)
+    console.log(temp);
     temp = new Set(temp);
     setGenres(["All Genres", ...temp]);
   }, []);
@@ -88,11 +89,6 @@ function Ranking() {
           placeholder="search"
           className=" border-2 py-1 px-2 text-center"
         />
-        <input
-          type="number"
-          className="border-2 py-1 px-2 text-center"
-          value={1}
-        />
       </div>
       <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
@@ -109,15 +105,15 @@ function Ranking() {
                 class="px-6 py-4 font-medium text-gray-900 text-2xl"
               >
                 <div className="flex">
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
-                    class="mr-2 cursor-pointer"
-                  ></img>
+                  <div>Votes</div>
+                </div>
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+              >
+                <div className="flex">
                   <div>Rating</div>
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
-                    class="ml-2 mr-2"
-                  ></img>
                 </div>
               </th>
               <th
@@ -125,15 +121,7 @@ function Ranking() {
                 class="px-2 py-2 font-medium text-gray-900 text-2xl"
               >
                 <div className="flex">
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-up-arrows-those-icons-lineal-those-icons-3.png"
-                    class="mr-2 cursor-pointer"
-                  ></img>
                   <div>Popularity</div>
-                  <img
-                    src="https://img.icons8.com/external-those-icons-lineal-those-icons/24/000000/external-down-arrows-those-icons-lineal-those-icons-4.png"
-                    class="ml-2 mr-2"
-                  ></img>
                 </div>
               </th>
               <th
@@ -161,6 +149,7 @@ function Ranking() {
                       {movie.title || movie.name}
                     </div>
                   </th>
+                  <td class="px-6 py-4 text-xl">{movie.vote_count}</td>
                   <td class="px-6 pl-12 py-4 text-xl">
                     {movie.vote_average.toFixed(2)}
                   </td>

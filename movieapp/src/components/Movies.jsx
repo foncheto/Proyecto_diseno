@@ -20,8 +20,8 @@ function Movies() {
               pageNum
           )
           .then((res) => {
-            // console.table(res.data.results);
-            setMovies(res.data.results);
+            console.table(res.data.results);
+            setMovies(res.data.results.slice(0, 16));
           });
       })();
     },
@@ -88,27 +88,7 @@ function Movies() {
                   style={{
                     display: hovered === movie.id ? "block" : "none",
                   }}
-                >
-                  {favourites.includes(movie.id) === false ? (
-                    <div
-                      className="
-                                text-2xl
-                                "
-                      onClick={() => {}}
-                    >
-                      😍
-                    </div>
-                  ) : (
-                    <div
-                      className="
-                                text-2xl
-                                "
-                      onClick={() => {}}
-                    >
-                      ❌
-                    </div>
-                  )}
-                </div>
+                ></div>
                 <div
                   className="
                     font-bold text-white
