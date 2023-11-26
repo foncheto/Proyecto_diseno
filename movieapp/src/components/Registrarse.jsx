@@ -1,112 +1,138 @@
-// Registrarse.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const formularioRegistroJSON = {
   campos: [
     {
       tipo: 'text',
       nombre: 'nombre',
-      etiqueta: 'Nombre',
-      placeholder: 'Ej. Juan',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full',
+      etiqueta: 'First Name',
+      placeholder: 'First Name',
     },
     {
       tipo: 'text',
       nombre: 'apellido',
-      etiqueta: 'Apellido',
-      placeholder: 'Ej. Pérez',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full',
+      etiqueta: 'Second Name',
+      placeholder: 'Second Name',
     },
     {
       tipo: 'email',
       nombre: 'correo',
-      etiqueta: 'Correo',
+      etiqueta: 'Email',
       placeholder: 'Ej. correo@example.com',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full',
     },
     {
       tipo: 'password',
       nombre: 'clave',
-      etiqueta: 'Clave',
-      placeholder: 'Escriba su contraseña...',
-      clase: 'border-2 border-gray-300 p-2 mb-3 w-full',
+      etiqueta: 'Password',
+      placeholder: 'Password',
+    },
+    {
+      tipo: 'password',
+      nombre: 'confirmarClave',
+      etiqueta: 'Confirm Password',
+      placeholder: 'Confirm Password',
     },
   ],
   boton: {
     tipo: 'submit',
-    etiqueta: 'Registrarse',
-    clase: 'bg-blue-500 text-white px-4 py-2 rounded-md mb-5',
+    etiqueta: 'Create Account',
   },
 };
 
 function Registrarse() {
-    const navigate = useNavigate();
-    const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
-    const [correo, setCorreo] = useState("");
-    const [clave, setClave] = useState("");
-    const [registroExitoso, setRegistroExitoso] = useState(false);
-  
-    const handleNombreChange = (e) => setNombre(e.target.value);
-    const handleApellidoChange = (e) => setApellido(e.target.value);
-    const handleCorreoChange = (e) => setCorreo(e.target.value);
-    const handleClaveChange = (e) => setClave(e.target.value);
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      setRegistroExitoso(true);
-      setTimeout(() => {
-        setNombre("");
-        setApellido("");
-        setCorreo("");
-        setClave("");
-        setRegistroExitoso(false);
-        navigate('/');
-      }, 2000);
+  const navigate = useNavigate();
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [clave, setClave] = useState('');
+  const [confirmarClave, setConfirmarClave] = useState('');
+
+  const handleNombreChange = (e) => setNombre(e.target.value);
+  const handleApellidoChange = (e) => setApellido(e.target.value);
+  const handleCorreoChange = (e) => setCorreo(e.target.value);
+  const handleClaveChange = (e) => setClave(e.target.value);
+  const handleConfirmarClaveChange = (e) => setConfirmarClave(e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (clave !== confirmarClave) {
+      return;
+    }
+    const datos = {
+      nombre,
+      apellido,
+      correo,
+      clave,
+      confirmarClave,
     };
-  
-    return (
-      <div className="contact-container bg-gray-200 border-2 border-black p-3 mt-10 max-w-md mx-auto rounded shadow mb-16">
-        <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold mt-6 mb-2">Registrarse</h1>
-          {registroExitoso && (
-            <p className="text-green-500 mb-4">Te has registrado correctamente.</p>
-          )}
-          <div className="flex flex-col items-center">
-            <form onSubmit={handleSubmit} className="flex flex-col items-stretch mb-16">
-              {formularioRegistroJSON.campos.map((campo, index) => (
-                <div key={index} className="mb-3">
-                  <label className="text-lg font-semibold">{campo.etiqueta}</label>
-                  <input
-                    type={campo.tipo}
-                    name={campo.nombre}
-                    className={campo.clase}
-                    onChange={
-                      campo.nombre === 'nombre' ? handleNombreChange :
-                      campo.nombre === 'apellido' ? handleApellidoChange :
-                      campo.nombre === 'correo' ? handleCorreoChange : handleClaveChange
-                    }
-                    value={
-                      campo.nombre === 'nombre' ? nombre :
-                      campo.nombre === 'apellido' ? apellido :
-                      campo.nombre === 'correo' ? correo : clave
-                    }
-                    placeholder={campo.placeholder}
-                  />
-                </div>
-              ))}
-              <button
-                type={formularioRegistroJSON.boton.tipo}
-                className={formularioRegistroJSON.boton.clase}
-              >
-                {formularioRegistroJSON.boton.etiqueta}
-              </button>
-            </form>
-          </div>
+    console.log('Datos enviados:', datos);
+
+    setNombre('');
+    setApellido('');
+    setCorreo('');
+    setClave('');
+    setConfirmarClave('');
+    navigate('/');
+  };
+
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-1/2">
+        <div className="flex justify-center items-center" style={{ marginTop: "-50px" }}>
+          Already have an account? 
+          <Link
+            to="/login"
+            className="font-bold text-blue-500 hover:text-blue-800"
+            style={{ marginLeft: "5px"}}
+          >
+            Log In
+          </Link>
         </div>
+        <div className="text-3xl mb-4 flex justify-center items-center" style={{ marginTop: "-70px" }}>
+          Create Your Account
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="flex flex-wrap -mx-3 mb-4" style={{ marginTop: "100px" }}>
+            {formularioRegistroJSON.campos.map((campo, index) => (
+              <div key={index} className="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  {campo.etiqueta}
+                </label>
+                <input
+                  type={campo.tipo}
+                  name={campo.nombre}
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={
+                    campo.nombre === 'nombre' ? handleNombreChange :
+                    campo.nombre === 'apellido' ? handleApellidoChange :
+                    campo.nombre === 'correo' ? handleCorreoChange :
+                    campo.nombre === 'clave' ? handleClaveChange : handleConfirmarClaveChange
+                  }
+                  value={
+                    campo.nombre === 'nombre' ? nombre :
+                    campo.nombre === 'apellido' ? apellido :
+                    campo.nombre === 'correo' ? correo :
+                    campo.nombre === 'clave' ? clave : confirmarClave
+                  }
+                  placeholder={campo.placeholder}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center"> {/* Agregamos este div para centrar el botón */}
+            <button
+              type={formularioRegistroJSON.boton.tipo}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              {formularioRegistroJSON.boton.etiqueta}
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }
-  
-  export default Registrarse;
+    </div>
+  );
+}
+
+export default Registrarse;
