@@ -1,31 +1,34 @@
-import "./App.css";
-import NavBar from "./components/NavBar";
-import Banner from "./components/Banner";
-import Movies from "./components/Movies";
-import MovieDetail from "./components/MovieDetail";
-import TvDetail from "./components/TvDetail";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PageNotFound from "./components/PageNotFound";
-import Footer from "./components/Footer";
-import Peliculas from "./components/Peliculas";
-import Series from "./components/Series";
-import Contacto from "./components/Contacto";
-import Ranking from "./components/Ranking";
-import Acerca from "./components/Acerca";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Banner from './components/Banner';
+import Movies from './components/Movies';
+import MovieDetail from './components/MovieDetail';
+import TvDetail from './components/TvDetail';
+import PageNotFound from './components/PageNotFound';
+import Footer from './components/Footer';
+import Peliculas from './components/Peliculas';
+import Series from './components/Series';
+import Contacto from './components/Contacto';
+import Ranking from './components/Ranking';
+import Acerca from './components/Acerca';
+import Registrarse from './components/Registrarse';
+import Login from './components/Login';
+import Logout from './components/Logout';
+
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        {/* <h1> Hello React ❤️</h1> */}
-        <NavBar></NavBar>
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen">
+        <NavBar />
+
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Banner></Banner>
-                <Movies></Movies>
-                <Footer></Footer>
+                <Banner />
+                <Movies />
               </>
             }
           ></Route>
@@ -33,8 +36,7 @@ function App() {
             path="/peliculas"
             element={
               <>
-                <Peliculas></Peliculas>
-                <Footer></Footer>
+                <Peliculas />
               </>
             }
           ></Route>
@@ -42,8 +44,7 @@ function App() {
             path="/series"
             element={
               <>
-                <Series></Series>
-                <Footer></Footer>
+                <Series />
               </>
             }
           ></Route>
@@ -51,8 +52,7 @@ function App() {
             path="/contacto"
             element={
               <>
-                <Contacto></Contacto>
-                <Footer></Footer>
+                <Contacto />
               </>
             }
           ></Route>
@@ -60,8 +60,7 @@ function App() {
             path="/ranking"
             element={
               <>
-                <Ranking></Ranking>
-                <Footer></Footer>
+                <Ranking />
               </>
             }
           ></Route>
@@ -69,8 +68,7 @@ function App() {
             path="/acerca"
             element={
               <>
-                <Acerca></Acerca>
-                <Footer></Footer>
+                <Acerca />
               </>
             }
           ></Route>
@@ -78,8 +76,7 @@ function App() {
             path="/movie/:id"
             element={
               <>
-                <MovieDetail></MovieDetail>
-                <Footer></Footer>
+                <MovieDetail />
               </>
             }
           ></Route>
@@ -87,15 +84,40 @@ function App() {
             path="/tv/:id"
             element={
               <>
-                <TvDetail></TvDetail>
-                <Footer></Footer>
+                <TvDetail />
               </>
             }
           ></Route>
-          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+          <Route
+            path="/registrarse"
+            element={
+              <>
+                <Registrarse />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/login"
+            element={
+              <>
+                <Login />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/logout"
+            element={
+              <>
+                <Logout />
+              </>
+            }
+          ></Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </BrowserRouter>
-    </>
+
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
