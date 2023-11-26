@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 function Peliculas() {
   let [movies, setMovies] = useState([]);
   let [pageNum, setPage] = useState(1);
-  let [hovered, setHovered] = useState("");
-  let [favourites, setFavorites] = useState([]);
+
   /* making api request */
   useEffect(
     function () {
@@ -36,32 +35,12 @@ function Peliculas() {
   const onNext = () => {
     setPage(pageNum + 1);
   };
-  /*emoji show and hide on hover*/
-  const showEmoji = (id) => {
-    setHovered(id);
-  };
-  const hideEmoji = () => {
-    setHovered("");
-  };
-  /*adding / removeing emojis to fav*/
-
-  const addEmoji = (id) => {
-    const newFav = [...favourites, id];
-    setFavorites(newFav);
-  };
-  const removeEmoji = (id) => {
-    // whichever elem -> not equal to my id
-    const filteredFav = favourites.filter((elem) => {
-      return elem !== id;
-    });
-    setFavorites(filteredFav);
-  };
 
   return (
     <div className="mt-8">
       <div
         className="mb-8
-            font-bold text-2xl text-center text-5xl
+            font-bold text-center text-6xl
             "
       >
         Trending Series
@@ -93,12 +72,6 @@ function Peliculas() {
                                 "
                 >
                   <div
-                    onMouseOver={() => {
-                      showEmoji(movie.id);
-                    }}
-                    onMouseLeave={() => {
-                      hideEmoji(movie.id);
-                    }}
                     key={movie.id}
                     className="
                 bg-center bg-cover    
@@ -124,9 +97,6 @@ function Peliculas() {
                                 absolute top-2 right-2
                                 rounded-xl
                                "
-                      style={{
-                        display: hovered === movie.id ? "block" : "none",
-                      }}
                     ></div>
                     <div
                       className="

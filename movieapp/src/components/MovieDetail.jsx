@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Pagination from "./Pagination";
 import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function TvDetail() {
   let [movies, setMovies] = useState([]);
-  let [pageNum, setPage] = useState(1);
-  let [hovered, setHovered] = useState("");
-  let [favourites, setFavorites] = useState([]);
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
 
@@ -26,31 +22,12 @@ function TvDetail() {
   useEffect(() => {
     axios
       .get(
-        "https://api.themoviedb.org/3/trending/movie/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=" +
-          pageNum
+        "https://api.themoviedb.org/3/trending/movie/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=1"
       )
       .then((res) => {
         setMovies(res.data.results.slice(0, 13));
       });
-  }, [pageNum]);
-
-  const onPrev = () => {
-    if (pageNum > 1) {
-      setPage(pageNum - 1);
-    }
-  };
-
-  const onNext = () => {
-    setPage(pageNum + 1);
-  };
-
-  const showEmoji = (id) => {
-    setHovered(id);
-  };
-
-  const hideEmoji = () => {
-    setHovered("");
-  };
+  }, []);
 
   const backdropStyle = {
     position: "absolute",
@@ -155,12 +132,6 @@ function TvDetail() {
                 return (
                   <Link to={`/${movie.media_type}/${movie.id}`} key={movie.id}>
                     <div
-                      onMouseOver={() => {
-                        showEmoji(movie.id);
-                      }}
-                      onMouseLeave={() => {
-                        hideEmoji(movie.id);
-                      }}
                       className="bg-center bg-cover w-[80px] h-[15vh] md:h-[20vh] md:w-[90px] m-4 rounded-xl hover:scale-110 duration-300 flex items-end relative"
                       style={{
                         backgroundImage: `url(https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path})`,

@@ -1,41 +1,24 @@
 import React, { useEffect, useState } from "react";
 // import Image from "./image.jpg";
 import axios from "axios";
-import Pagination from "./Pagination";
 import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 function Movies() {
   let [movies, setMovies] = useState([]);
-  let [pageNum, setPage] = useState(1);
-  let [hovered, setHovered] = useState("");
-  let [favourites, setFavorites] = useState([]);
   /* making api request */
-  useEffect(
-    function () {
-      console.log("useEffect again");
-      (function () {
-        axios
-          .get(
-            "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=" +
-              pageNum
-          )
-          .then((res) => {
-            console.table(res.data.results);
-            setMovies(res.data.results.slice(0, 16));
-          });
-      })();
-    },
-    [pageNum]
-  );
-  /* Pagination handlers*/
-  const onPrev = () => {
-    if (pageNum > 1) {
-      setPage(pageNum - 1);
-    }
-  };
-  const onNext = () => {
-    setPage(pageNum + 1);
-  };
+  useEffect(function () {
+    console.log("useEffect again");
+    (function () {
+      axios
+        .get(
+          "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=1"
+        )
+        .then((res) => {
+          console.table(res.data.results);
+          setMovies(res.data.results.slice(0, 16));
+        });
+    })();
+  }, []);
 
   return (
     <div className="mt-3">
@@ -94,9 +77,6 @@ function Movies() {
                                 absolute top-2 right-2
                                 rounded-xl
                                "
-                      style={{
-                        display: hovered === movie.id ? "block" : "none",
-                      }}
                     ></div>
                     <div
                       className="
