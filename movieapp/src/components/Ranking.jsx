@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function Ranking() {
   let [genres, setGenres] = useState([]);
-  let [votes, setVotes] = useState(0);
   const [sortBy, setSortBy] = useState("vote_average");
   const [sortOrder, setSortOrder] = useState("desc");
   const [selectedGenre, setSelectedGenre] = useState("All Genres");
