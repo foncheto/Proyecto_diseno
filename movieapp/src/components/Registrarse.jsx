@@ -48,6 +48,7 @@ function Registrarse() {
   const [correo, setCorreo] = useState('');
   const [clave, setClave] = useState('');
   const [confirmarClave, setConfirmarClave] = useState('');
+  const [cuentaCreada, setCuentaCreada] = useState(false); // Estado para controlar el mensaje
 
   const handleNombreChange = (e) => setNombre(e.target.value);
   const handleApellidoChange = (e) => setApellido(e.target.value);
@@ -69,12 +70,19 @@ function Registrarse() {
     };
     console.log('Datos enviados:', datos);
 
+    // Mostrar mensaje de cuenta creada exitosamente
+    setCuentaCreada(true);
+
+    // Limpieza de campos y redireccionamiento
     setNombre('');
     setApellido('');
     setCorreo('');
     setClave('');
     setConfirmarClave('');
-    navigate('/');
+    setTimeout(() => {
+      setCuentaCreada(false); // Ocultar el mensaje después de unos segundos (opcional)
+      navigate('/');
+    }, 3000); // Cerrar el mensaje después de 3 segundos (opcional)
   };
 
   return (
@@ -129,6 +137,11 @@ function Registrarse() {
               {formularioRegistroJSON.boton.etiqueta}
             </button>
           </div>
+          {cuentaCreada && ( // Mostrar el mensaje si cuentaCreada es true
+            <div className="bg-green-200 text-green-800 text-center px-4 py-2 mt-4">
+              Account created successfully!
+            </div>
+          )}
         </form>
       </div>
     </div>
