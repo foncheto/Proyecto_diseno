@@ -31,9 +31,8 @@ function NavBar() {
           About us
         </Link>
       </div>
-      <div className="flex items-center space-x-4"
-      style={{ marginRight: "10px" }}>
-        <Link to="/series" className="text-xl" style={{ color: "#FFFFFF" }}>
+      <div className="flex items-center space-x-4" style={{ marginRight: "10px" }}>
+        <Link to="/registrarse" className="text-xl" style={{ color: "#FFFFFF" }}>
           Sign Up
         </Link>
         <Link to="/login" className="text-xl" style={{ color: "#FFFFFF" }}>
