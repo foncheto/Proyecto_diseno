@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavBar2 from './components/NavBar2';
 import Banner from './components/Banner';
 import Movies from './components/Movies';
 import MovieDetail from './components/MovieDetail';
@@ -19,9 +19,9 @@ import Logout from './components/Logout';
 function App() {
   return (
     <BrowserRouter>
+    
       <div className="flex flex-col min-h-screen">
-        <NavBar />
-
+      <NavBar2 />
         <Routes>
           <Route
             path="/"

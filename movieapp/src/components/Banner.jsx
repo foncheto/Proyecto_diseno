@@ -45,7 +45,7 @@ function Banner() {
                                     https://image.tmdb.org/t/p/original/t/p/original/${bannerMovie.backdrop_path})`,
             }}
           >
-            <div className=" font-bold text-7xl md:text-7xl text-white bg-gray-900 bg-opacity-60 p-8 text-center w-full">
+            <div className=" font-bold text-5xl md:text-5xl text-white bg-gray-900 bg-opacity-60 p-8 text-center w-full">
               FilmoRanking
             </div>
           </div>

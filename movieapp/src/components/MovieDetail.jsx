@@ -34,9 +34,9 @@ function TvDetail() {
     top: 0,
     left: 0,
     width: "100%",
-    height: "38.7%",
+    height: "42%",
     zIndex: -1,
-    opacity: 0.15, // Opacidad del fondo
+    opacity: 0.15,
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -46,44 +46,43 @@ function TvDetail() {
   return (
     <div className="" style={{ position: "relative", minHeight: "100vh" }}>
       <div style={backdropStyle}></div>
-      <div
-        className="md:w-full border-black border-2 rounded-lg mb-8"
-        style={{ display: "flex", alignItems: "center" }}
-      >
-        <div style={{ flex: "1", marginRight: "10px" }}>
+      <div 
+        className="md:w-full border-black border-2 rounded-lg mb-8" 
+        style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+        <div style={{ flex: "1", marginRight: "20px", minWidth: "200px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
             style={{
-              width: "30%",
+              width: "100%",
+              maxWidth: "200px",
               borderRadius: "8px",
-              marginLeft: "20px",
-              marginTop: "20px",
-              marginBottom: "20px",
+              margin: "20px 20px",
             }}
           />
         </div>
         <div
-          className="mt-4 text-center font-serif text-justify"
+          className="mt-8 text-center font-serif text-justify"
           style={{
             flex: "1",
-            marginLeft: "-600px",
-            marginBottom: "70px",
+            margin: "20px",
+            marginLeft: "20px"
           }}
         >
           <div style={{}}>
             <div
-              className="mx-auto text-5xl p-2"
+              className="mx-auto"
               style={{
                 fontWeight: "bold",
+                fontSize: "200%",
                 fontFamily: "sans-serif",
               }}
             >
               {movie.title}
             </div>
           </div>
-          <div style={{ marginBottom: "10px", fontFamily: "sans-serif" }}>
-            <div className="mx-auto text-lg p-2">
+          <div style={{ margin: "10px 0", fontFamily: "sans-serif" }}>
+            <div className="mx-auto">
               Release Date: {movie.release_date} ▪️ ⭐{movie.vote_average} ▪️{" "}
               {movie.runtime} min ▪️ {movie.vote_count} votes ▪️ Language:{" "}
               {movie.original_language}
@@ -102,20 +101,18 @@ function TvDetail() {
             style={{
               padding: "10px",
               borderRadius: "10px",
-              width: "fit-content",
-              marginRight: "15px",
-              marginTop: "10px",
               fontFamily: "sans-serif",
+              overflowWrap: "break-word",
             }}
           >
             {movie.overview}
           </div>
         </div>
       </div>
-      <div className="md:w-full border-black border-2 rounded-lg">
+      <div className="md:w-full border-black border-2 rounded-lg p-2">
         <div className="mt-8">
           <div className="mb-8 font-bold text-2xl text-center text-3xl">
-            Otras Peliculas
+            Other Movies
           </div>
           <div className="flex flex-wrap justify-center">
             {movies.length === 0 ? (

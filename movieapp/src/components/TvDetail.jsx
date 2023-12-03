@@ -34,9 +34,9 @@ function TvDetail() {
     top: 0,
     left: 0,
     width: "100%",
-    height: "38.7%",
+    height: "42%",
     zIndex: -1,
-    opacity: 0.15, // Opacidad del fondo
+    opacity: 0.15,
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -46,20 +46,18 @@ function TvDetail() {
   return (
     <div className="" style={{ position: "relative", minHeight: "100vh" }}>
       <div style={backdropStyle}></div>
-      <div
-        className="md:w-full border-black border-2 rounded-lg mb-8"
-        style={{ display: "flex", alignItems: "center" }}
-      >
-        <div style={{ flex: "1", marginRight: "20px" }}>
+      <div 
+        className="md:w-full border-black border-2 rounded-lg mb-8" 
+        style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+        <div style={{ flex: "1", marginRight: "20px", minWidth: "200px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
             style={{
-              width: "30%",
+              width: "100%",
+              maxWidth: "200px",
               borderRadius: "8px",
-              marginLeft: "20px",
-              marginTop: "20px",
-              marginBottom: "20px",
+              margin: "20px 20px",
             }}
           />
         </div>
@@ -67,8 +65,8 @@ function TvDetail() {
           className="mt-8 text-center font-serif text-justify"
           style={{
             flex: "1",
-            marginLeft: "-600px",
-            marginBottom: "70px",
+            margin: "20px",
+            marginLeft: "20px"
           }}
         >
           <div style={{}}>
@@ -83,7 +81,7 @@ function TvDetail() {
               {movie.name}
             </div>
           </div>
-          <div style={{ marginBottom: "10px", fontFamily: "sans-serif" }}>
+          <div style={{ margin: "10px 0", fontFamily: "sans-serif" }}>
             <div className="mx-auto">
               {movie.first_air_date} ▪️ ⭐{movie.vote_average} ▪️{" "}
               {movie.number_of_seasons} temporadas ▪️ {movie.number_of_episodes}{" "}
@@ -103,10 +101,8 @@ function TvDetail() {
             style={{
               padding: "10px",
               borderRadius: "10px",
-              width: "fit-content",
-              marginRight: "15px",
-              marginTop: "10px",
               fontFamily: "sans-serif",
+              overflowWrap: "break-word",
             }}
           >
             {movie.overview}
