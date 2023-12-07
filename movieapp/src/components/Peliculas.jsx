@@ -41,7 +41,7 @@ function Peliculas() {
             font-bold text-center text-6xl
             "
       >
-        Trending Peliculas
+        Trending Movies
       </div>
       <div
         className="flex 

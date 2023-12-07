@@ -3,11 +3,19 @@ import axios from "axios";
 import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Rating from "react-rating-stars-component";
 
 function TvDetail() {
   let [movies, setMovies] = useState([]);
   const { id } = useParams();
   const [movie, setMovie] = useState([]);
+  const [selectedRating, setSelectedRating] = useState(0);
+
+  const [rating, setRating] = useState(0); // State to manage the rating
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
 
   useEffect(() => {
     axios
@@ -29,6 +37,12 @@ function TvDetail() {
       });
   }, []);
 
+  const handleStarClick = (rating) => {
+    // Instead of setting the selectedRating to the exact rating,
+    // set it to the maximum value between the current rating and the previously selected rating.
+    setSelectedRating(Math.max(rating, selectedRating));
+  };
+
   const backdropStyle = {
     position: "absolute",
     top: 0,
@@ -46,9 +60,10 @@ function TvDetail() {
   return (
     <div className="" style={{ position: "relative", minHeight: "100vh" }}>
       <div style={backdropStyle}></div>
-      <div 
-        className="md:w-full border-black border-2 rounded-lg mb-8" 
-        style={{ display: "flex", alignItems: ""}}>
+      <div
+        className="md:w-full border-black border-2 rounded-lg mb-8"
+        style={{ display: "flex", alignItems: "" }}
+      >
         <div style={{ flex: "1", marginRight: "-100px" }}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
@@ -58,7 +73,7 @@ function TvDetail() {
               maxWidth: "200px",
               borderRadius: "8px",
               margin: "20px 80px",
-              marginBottom: "34px"
+              marginBottom: "34px",
             }}
           />
         </div>
@@ -67,7 +82,7 @@ function TvDetail() {
           style={{
             flex: "1",
             margin: "50px",
-            marginLeft: "-80px"
+            marginLeft: "-80px",
           }}
         >
           <div style={{}}>
@@ -108,16 +123,21 @@ function TvDetail() {
           >
             {movie.overview}
           </div>
-          <div className="flex flex-wrap justify-center text-xl" style={{marginRight: "50px"}}>
+          <div
+            className="flex flex-wrap justify-center text-xl"
+            style={{ marginRight: "50px" }}
+          >
             <p>¡Realiza tu votación aquí!</p>
+            <div style={{ marginLeft: "10px" }}>
+              <Rating
+                count={5}
+                size={40}
+                onChange={handleRatingChange}
+                color="gold"
+                value={rating}
+              />
+            </div>
           </div>
-          <div class="" style={{fontSize: "30px", marginLeft: "240px"}}>
-          <span class="star-filled" style={{color: "gold"}}>&#9733;</span>
-          <span class="star-filled" style={{color: "gold"}}>&#9733;</span>
-          <span class="star-filled" style={{color: "gold"}}>&#9733;</span>
-          <span class="star-filled" style={{color: "gold"}}>&#9733;</span>
-          <span class="star-filled" style={{color: "gold"}}>&#9733;</span>
-</div>
         </div>
       </div>
       <div className="md:w-full border-black border-2 rounded-lg p-2">
