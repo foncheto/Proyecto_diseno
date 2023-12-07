@@ -6,6 +6,7 @@ function BurguerButton(props) {
     <Burguer>
       <div  onClick={props.handleClick} 
             className={`icon nav-icon-5 ${props.clicked ? 'open' : ''}`}
+      style={{marginTop: ""}}
       >
         <span></span>
         <span></span>
@@ -30,7 +31,7 @@ const Burguer = styled.div`
 .nav-icon-5 span{
   background-color:#fff;
   position: absolute;
-  border-radius: 2px;
+  border-radius: 20px;
   transition: .3s cubic-bezier(.8, .5, .2, 1.4);
   width:100%;
   height: 4px;
@@ -40,7 +41,7 @@ const Burguer = styled.div`
 .nav-icon-5 span:nth-child(1){
   top:0px;
   left: 0px;
-  z-index: 1;
+  
 }
 .nav-icon-5 span:nth-child(2){
   top:13px;

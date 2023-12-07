@@ -1,3 +1,15 @@
+
+/* IMPORTANTE, LEER ANTES DE EMPEZAR A CODIFICAR
+  * 1. Modifiqué la página completa porque todo era extremadamente grande y molestaba la vista
+  * 
+  * 
+  * 2. No segunda ni tercera página, hay que ver cómo solucionarlo
+
+*/ 
+
+
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -57,6 +69,11 @@ function Ranking() {
     }
   });
 
+  const pageStyles = {
+    padding: "40px", // Esto agrega un padding de 20px alrededor de todo el contenido
+    backgroundColor: "lightgray",
+  };
+
   useEffect(() => {
     let temp = movies.map((movie) => genreids[movie.genre_ids[0]]);
     console.log(temp);
@@ -65,12 +82,12 @@ function Ranking() {
   }, []);
 
   return (
-    <>
+    <div style={pageStyles}> {/* Aquí aplicas los estilos */}
       <div className="mt-6 flex space-x-2 justify-center">
         {genres.map((genre) => (
           <button
             key={genre}
-            className={`py-1 px-2 bg-gray-400 rounded-lg font-bold text-lg text-white hover:bg-blue-400 ${
+            className={`py-1 px-2 bg-gray-400 rounded-lg font-bold text-white hover:bg-blue-400 ${
               genre === selectedGenre ? "bg-blue-400" : ""
             }`}
             onClick={() => setSelectedGenre(genre)}
@@ -86,13 +103,13 @@ function Ranking() {
             <tr>
               <th
                 scope="col"
-                class="px-6 py-4 font-medium text-gray-900 text-2xl p-3"
+                class="px-6 py-4 text-gray-900 text-m p-3"
               >
                 Name
               </th>
               <th
                 scope="col"
-                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+                class="px-6 py-4 text-gray-900 text-m p-3"
               >
                 <div className="flex">
                   <div>Votes</div>
@@ -100,7 +117,7 @@ function Ranking() {
               </th>
               <th
                 scope="col"
-                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+                class="px-6 py-4 text-gray-900 text-m p-3"
               >
                 <div className="flex">
                   <div>Rating</div>
@@ -108,7 +125,7 @@ function Ranking() {
               </th>
               <th
                 scope="col"
-                class="px-2 py-2 font-medium text-gray-900 text-2xl"
+                class="px-6 py-4 text-gray-900 text-m p-3"
               >
                 <div className="flex">
                   <div>Popularity</div>
@@ -116,7 +133,7 @@ function Ranking() {
               </th>
               <th
                 scope="col"
-                class="px-6 py-4 font-medium text-gray-900 text-2xl"
+                class="px-6 py-4 text-gray-900 text-m p-3"
               >
                 Genre
               </th>
@@ -129,7 +146,7 @@ function Ranking() {
               }
               return (
                 <tr class="hover:bg-gray-50" key={movie.id}>
-                  <th class="flex items-center px-6 py-4 font-normal text-gray-900 space-x-2">
+                  <th class="flex items-center px-3 py-2 text-gray-900">
                     <Link
                       to={`/${movie.media_type}/${movie.id}`}
                       className="font-bold 
@@ -138,25 +155,25 @@ function Ranking() {
                                   "
                     >
                       <img
-                        class="h-[10rem]  w-[10rem] object-fit"
+                        class="h-[5rem]  w-[5rem] object-fit"
                         src={`https://image.tmdb.org/t/p/original/t/p/original/${movie.poster_path}`}
                         alt=""
                       />{" "}
                     </Link>
-                    <div class="font-semibold text-2xl p-5">
+                    <div class="px-6 py-4 text-gray-900 p-5">
                       {movie.title || movie.name}
                     </div>
                   </th>
-                  <td class="px-6 py-4 text-xl">{movie.vote_count}</td>
-                  <td class="px-6 pl-12 py-4 text-xl">
+                  <td class="px-6 py-4 text-gray-900 p-5">{movie.vote_count}</td>
+                  <td class="px-6 py-4 text-gray-900 p-5">
                     {movie.vote_average.toFixed(2)}
                   </td>
-                  <td class="px-6 py-4 pl-12 text-xl">
+                  <td class="px-6 py-4 text-gray-900 p-5">
                     {movie.popularity.toFixed(2)}
                   </td>
-                  <td class="px-6 py-4">
-                    <div class="flex gap-2">
-                      <span class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-l font-semibold text-green-600 text-2xl">
+                  <td class="px-6 py-4 text-gray-900 p-5">
+                    <div class="px-6 py-4 text-gray-900 p-5">
+                      <span class="px-6 p-5 rounded-full bg-green-40 font-semibold text-green-600">
                         {genreids[movie.genre_ids[0]]}
                       </span>
                     </div>
@@ -167,7 +184,7 @@ function Ranking() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
 

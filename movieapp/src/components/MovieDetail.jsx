@@ -34,7 +34,7 @@ function TvDetail() {
     top: 0,
     left: 0,
     width: "100%",
-    height: "42%",
+    height: "42.5%",
     zIndex: -1,
     opacity: 0.15,
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
@@ -48,8 +48,8 @@ function TvDetail() {
       <div style={backdropStyle}></div>
       <div 
         className="md:w-full border-black border-2 rounded-lg mb-8" 
-        style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
-        <div style={{ flex: "1", marginRight: "20px", minWidth: "200px" }}>
+        style={{ display: "flex", alignItems: ""}}>
+        <div style={{ flex: "1", marginRight: "-100px"}}>
           <img
             src={`https://image.tmdb.org/t/p/original/t/p/w500/${movie.poster_path}`}
             alt="foto"
@@ -57,16 +57,16 @@ function TvDetail() {
               width: "100%",
               maxWidth: "200px",
               borderRadius: "8px",
-              margin: "20px 20px",
+              margin: "20px 80px",
             }}
           />
         </div>
         <div
-          className="mt-8 text-center font-serif text-justify"
+          className=""
           style={{
             flex: "1",
-            margin: "20px",
-            marginLeft: "20px"
+            margin: "50px",
+            marginLeft: "-80px"
           }}
         >
           <div style={{}}>
@@ -106,6 +106,9 @@ function TvDetail() {
             }}
           >
             {movie.overview}
+          <p className="text-center mt-4">
+      You need to be <a href="/login" style={{ color: 'blue', fontWeight: "bold" }}>registered</a> to vote for this movie.
+    </p>
           </div>
         </div>
       </div>

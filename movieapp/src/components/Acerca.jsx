@@ -1,3 +1,12 @@
+/* IMPORTANTE, LEER ANTES DE EMPEZAR A CODIFICAR
+  * 1. Eliminé el fondo de pantalla porque todo era extremadamente grande y molestaba la vista
+  * 2. modifiqué el código para que tenga una apariencia más amigable con las personas
+  * 3. adapté los margin de tal modo que no estén en los bordes
+  * 
+  *
+
+*/ 
+
 import React from "react";
 import PabloImage from "./img/Pablo.jpeg";
 import AlfonsoImage from "./img/Alfonso.jpg";
@@ -14,10 +23,9 @@ const styles = {
   },
   header: {
     textAlign: "center",
-    fontSize: "44px",
+    fontSize: "35px",
     color: "black",
     marginBottom: "20px",
-    fontFamily: "Mono, monospace",
   },
   cardContainer: {
     display: "flex",
@@ -46,7 +54,6 @@ const styles = {
   },
   title: {
     textAlign: "center",
-    fontFamily: "Roboto, sans-serif",
     fontSize: "24px",
     marginBottom: "10px",
     fontWeight: "bold",
@@ -59,13 +66,11 @@ const styles = {
   },
   presentation: {
     textAlign: "justify",
-    fontFamily: "Arial, sans-serif",
   },
 };
 
 function Acerca() {
-  const textoAleatorio =
-    "Our mission at PelicuRanking is to build an innovative platform that enhances the cinematic experience for lovers of the seventh art. We strive to provide a space where passion for movies meets cutting-edge technology. By creating this website, we aim to offer users not only the opportunity to discover and rate movies but also to explore the latest in the world of cinema. Welcome to our community of movie enthusiasts, where every click is a step towards an extraordinary cinematic experience!";
+  const textoAleatorio = "Our mission at PelicuRanking is to build an innovative platform that enhances the cinematic experience for lovers of the seventh art. We strive to provide a space where passion for movies meets cutting-edge technology. By creating this website, we aim to offer users not only the opportunity to discover and rate movies but also to explore the latest in the world of cinema. Welcome to our community of movie enthusiasts, where every click is a step towards an extraordinary cinematic experience!";
   let [bannerMovie, setBanner] = useState("");
 
   useEffect(function () {
@@ -80,13 +85,11 @@ function Acerca() {
         });
     })();
   }, []);
+
   return (
-    <>
+    <div style={{ backgroundColor: "lightgray", padding: "90px", marginTop: "" }}>
       {bannerMovie === "" ? (
-        <div
-          className="
-                    flex justify-center"
-        >
+        <div className="flex justify-center">
           <Oval
             height="80"
             width="80"
@@ -97,23 +100,17 @@ function Acerca() {
           />
         </div>
       ) : (
-        <>
-          <div
-            style={{
-              backgroundImage: `url(
-                                    https://image.tmdb.org/t/p/original/t/p/original/${bannerMovie.backdrop_path})`,
-            }}
-          >
-            <div style={styles.container} className="p-3">
-              <div style={styles.header}>
-                <h1>About FilmoRanking's history</h1>
-              </div>
-              <p className=" text-xl ">{textoAleatorio}</p>
-              <div style={styles.header}>
-                <h1>Our Team</h1>
-              </div>
-              <div style={styles.cardContainer}>
-                <div style={styles.card} className="shadow">
+        <div style={{ margin: "0 auto", maxWidth: "1200px", marginTop: "-30px" }}>
+          <div style={styles.header}>
+            <h1>About FilmoRanking's history</h1>
+          </div>
+          <p className="">{textoAleatorio}</p>
+          <div style={styles.header}>
+  <p style={{ fontSize: '2rem' }}>Our Team</p>
+</div>
+
+          <div style={styles.cardContainer}>
+          <div style={styles.card} className="shadow1">
                   <img
                     src={AlfonsoImage}
                     alt="Programador"
@@ -131,9 +128,8 @@ function Acerca() {
                       </p>
                     </section>
                   </div>
-                </div>
-
-                <div style={styles.card} className="shadow">
+            </div>
+            <div style={styles.card} className="shadow1">
                   <img
                     src={PabloImage}
                     alt="Programador"
@@ -151,9 +147,8 @@ function Acerca() {
                       </p>
                     </section>
                   </div>
-                </div>
-
-                <div style={styles.card} className="shadow">
+            </div>
+            <div style={styles.card} className="shadow1">
                   <img
                     src={JorgeImage}
                     alt="Programador"
@@ -171,13 +166,11 @@ function Acerca() {
                       </p>
                     </section>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 

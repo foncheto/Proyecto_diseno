@@ -5,20 +5,26 @@ import { Oval } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 function Movies() {
   let [movies, setMovies] = useState([]);
+  let [search, setSearch] = useState("");
+
   /* making api request */
   useEffect(function () {
     console.log("useEffect again");
     (function () {
       axios
-        .get(
-          "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&page=1"
-        )
+      .get(
+        "https://api.themoviedb.org/3/trending/all/week?api_key=565dda78aae2b75fafddbc4320a33b38&=${search}"
+      )
         .then((res) => {
           console.table(res.data.results);
           setMovies(res.data.results.slice(0, 16));
         });
     })();
-  }, []);
+  }, [search]);
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <div className="mt-3">

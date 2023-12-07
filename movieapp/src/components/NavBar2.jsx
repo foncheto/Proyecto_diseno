@@ -15,17 +15,29 @@ function Navbar() {
     <>
        <NavContainer>
       <Link to="/">
-          <img src={Logo} className="w-[60px]" alt="Logo" />
+          <img src={Logo} className="w-[60px]" alt="Logo" style={{marginLeft: "0px"}}/>
         </Link>
-        <div className={`links ${clicked ? 'active' : ''}`}>
+        <input
+  type="text"
+  placeholder="Buscar en FilmoRanking"
+  style={{
+    display: 'block',
+    margin: 'auto',
+    border: '2px solid black',
+    borderRadius: '5px',
+    padding: '8px',
+    width: '300px', // Puedes ajustar el ancho según tu preferencia
+  }}
+/>
+        <div className={`links ${clicked ? 'active' : ''}`} style={{ marginRight: "20px"}}>
         <a onClick={handleClick} href="/" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Home</a>
           <a onClick={handleClick} href="/peliculas" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Films</a>
           <a onClick={handleClick} href="/series" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Series</a>
           <a onClick={handleClick} href="/ranking" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Ranking</a>
           <a onClick={handleClick} href="/contacto" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Contact</a>
           <a onClick={handleClick} href="/acerca" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>About Us</a>
-            <a onClick={handleClick} href="/login" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Log In</a>
-            <a onClick={handleClick} href="/registrarse" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Sign Up</a>
+            <a onClick={handleClick} href="/Login" style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Log In</a>
+            <a onClick={handleClick} href="/  " style={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1rem" }}>Sign Up</a>
         </div>
         <div className='burguer'>
             <BurguerButton clicked={clicked} handleClick={handleClick} />
@@ -89,7 +101,7 @@ const NavContainer = styled.nav`
     margin-right: auto;
     top: 3%;
     left: 0;
-    right: 0;
+    right: -50px;
     text-align: center;
     z-index: 2;
     a{

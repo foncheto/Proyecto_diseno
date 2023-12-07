@@ -10,7 +10,7 @@ function PageNotFound() {
     >
       <Row>
         <Col>
-          <Card className="text-center p-4">
+          <Card className="text-center align-items-center p-4">
             <img
               src={triset}
               alt="404notfound"
@@ -19,15 +19,15 @@ function PageNotFound() {
               style={{
                 marginBottom: "20px",
                 display: "block",
-                marginLeft: "auto",
+                marginLeft: "410px",
                 marginRight: "auto",
               }}
             />
             <Card.Body>
-              <Card.Text className="mt-3" style={{ fontSize: "30px" }}>
+              <Card.Text className="mt-3" style={{ fontSize: "30px", marginLeft: "150px", }}>
                 404 Not Found
               </Card.Text>
-              <Card.Text className="mt-3" style={{ fontSize: "30px" }}>
+              <Card.Text className="mt-3" style={{ fontSize: "30px", marginLeft: "150px", }}>
                 Lo siento, pero la página que estás buscando no existe o se
                 produjo otro error inesperado. Por favor dirígete a la página
                 principal para poder elegir una nueva dirección

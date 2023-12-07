@@ -19,11 +19,9 @@ function BurguerButton2() {
       {clicked && (
         <ul className="burger-options">
           <li>
-            <a href="/login">Log In</a>
-          </li>
-          <li>
-            <a href="/registrarse">Sign Up</a>
-          </li>
+  <a href="/registrarse" style="color: red;">Log Out</a>
+</li>
+
         </ul>
       )}
     </div>
@@ -44,7 +42,7 @@ const Burguer2 = styled.div`
   display: inline-block;
 }
 .nav-icon-5 span{
-  background-color:#fff;
+  background-color:#ffff;
   position: absolute;
   border-radius: 2px;
   transition: .3s cubic-bezier(.8, .5, .2, 1.4);
